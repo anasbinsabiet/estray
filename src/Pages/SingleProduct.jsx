@@ -276,9 +276,15 @@ const SingleProduct = () => {
       <br />
       <div className="container mt-5">
         <h4 style={{ marginLeft: "-15px" }}>{product.cardDetails}</h4>
-        <div className="row">
+        <div className="row w-100">
           <div className="col pr-3 pl-0" id="divToPrint">
-            <div className="px-5 py-4 border bg-light">
+            <div
+              className={`${
+                window.innerWidth > 768
+                  ? "px-5 py-4 border bg-light"
+                  : "py-4 border bg-light"
+              }`}
+            >
               <Div id="divToPrint1">
                 <div className="triangle">
                   <div className="triangle2">
@@ -393,7 +399,7 @@ const SingleProduct = () => {
           </div>
           <div className="col form-side p-0">
             <div className="p-3 border bg-light">
-              <div className="row">
+              <div className="row w-100">
                 <div className="col-md-6">
                   <span>
                     <b>Price: </b>
@@ -455,7 +461,7 @@ const SingleProduct = () => {
                 }}
               />
 
-              <div className="row">
+              <div className="row w-100">
                 <div className="col-md-6">
                   <b className="lh-lg">Title</b>
                 </div>
@@ -584,7 +590,7 @@ const SingleProduct = () => {
                 }}
               />
 
-              <div className="row">
+              <div className="row w-100">
                 <div className="col-md-6">
                   <b className="lh-lg">Website Title</b>
                 </div>
@@ -699,7 +705,7 @@ const SingleProduct = () => {
                 </div>
               </div>
 
-              <div className="quantity mt-4 text-right">
+              <div className="quantity mt-4 text-right w-100">
                 <span>
                   <button className="add-to-basket">
                     <FontAwesomeIcon icon={faUpload} />

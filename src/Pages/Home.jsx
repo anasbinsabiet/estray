@@ -38,13 +38,6 @@ const Home = () => {
                                     Let’s vaping together{" "}
                                   </div>
                                 </div>
-                                <div className="elementor-element elementor-element-6d3a1ad elementor-widget elementor-widget-text-editor">
-                                  <div className="elementor-widget-container">
-                                    Our vape shop is not only a variety of
-                                    vaping products, but also an operational
-                                    support service.{" "}
-                                  </div>
-                                </div>
                                 <section className="elementor-section elementor-inner-section elementor-element elementor-element-d2c0f03 elementor-section-full_width elementor-section-height-default elementor-section-height-default">
                                   <div className="elementor-container elementor-column-gap-default">
                                     <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-ca4148e">
@@ -59,7 +52,9 @@ const Home = () => {
                                               >
                                                 <span className="elementor-button-content-wrapper">
                                                   <span className="elementor-button-text">
-                                                    Shop now
+                                                    <Link to="/product">
+                                                      Shop now
+                                                    </Link>
                                                   </span>
                                                 </span>
                                               </Link>

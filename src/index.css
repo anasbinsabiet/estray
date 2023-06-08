@@ -233,3 +233,17 @@ p.textBase {
 .form-side .col-md-6 {
   margin-bottom: 5px;
 }
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .elementor-widget.elementor-widget-image {
+    margin-top: 90px;
+  }
+
+  .quantity.w-100 {
+    margin-left: -30px;
+  }
+}

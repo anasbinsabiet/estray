@@ -1,8 +1,4 @@
 import React from "react";
-import Header from "../Components/Admin/Header";
-import { Menu } from "@chakra-ui/react";
-import Dashboard from "../Components/Admin/Dashboard";
-import Footer from "../Components/Admin/Footer";
 
 const AdminPanel = () => {
   return (

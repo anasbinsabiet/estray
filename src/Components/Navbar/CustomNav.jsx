@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthContextProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 
 const CustomNav = (props) => {
+  const [isVisible, setIsVisible] = useState(false);
   const auth = useContext(AuthContext);
   const { user, logOut, isAdmin, isAuth } = auth;
   const logoutHandler = async () => {
@@ -29,15 +32,21 @@ const CustomNav = (props) => {
             aria-controls="navbarColor01"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={() => setIsVisible(!isVisible)}
           >
-            <span id="m-tgl-icon" className="animated-icon1">
-              <span />
-              <span />
-            </span>
+            {isVisible ? (
+              <FontAwesomeIcon icon={faClose} />
+            ) : (
+              <FontAwesomeIcon icon={faBars} />
+            )}
           </button>
         </div>
         <div
-          className="collapse navbar-collapse justify-content-end"
+          className={`${
+            isVisible
+              ? "collapse navbar-collapse justify-content-end d-block"
+              : "collapse navbar-collapse justify-content-end d-none"
+          }`}
           id="navbarColor01"
         >
           <ul

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Dashboard extends Component {
   render() {
@@ -16,7 +17,7 @@ export default class Dashboard extends Component {
                 <div className="col-sm-6">
                   <ol className="breadcrumb float-sm-right">
                     <li className="breadcrumb-item">
-                      <a href="#">Home</a>
+                      <Link href="#">Home</Link>
                     </li>
                     <li className="breadcrumb-item active">Dashboard v1</li>
                   </ol>
@@ -43,9 +44,9 @@ export default class Dashboard extends Component {
                     <div className="icon">
                       <i className="ion ion-bag" />
                     </div>
-                    <a href="#" className="small-box-footer">
+                    <Link href="#" className="small-box-footer">
                       More info <i className="fas fa-arrow-circle-right" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 {/* ./col */}
@@ -61,9 +62,9 @@ export default class Dashboard extends Component {
                     <div className="icon">
                       <i className="ion ion-stats-bars" />
                     </div>
-                    <a href="#" className="small-box-footer">
+                    <Link href="#" className="small-box-footer">
                       More info <i className="fas fa-arrow-circle-right" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 {/* ./col */}
@@ -77,9 +78,9 @@ export default class Dashboard extends Component {
                     <div className="icon">
                       <i className="ion ion-person-add" />
                     </div>
-                    <a href="#" className="small-box-footer">
+                    <Link href="#" className="small-box-footer">
                       More info <i className="fas fa-arrow-circle-right" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 {/* ./col */}
@@ -93,9 +94,9 @@ export default class Dashboard extends Component {
                     <div className="icon">
                       <i className="ion ion-pie-graph" />
                     </div>
-                    <a href="#" className="small-box-footer">
+                    <Link href="#" className="small-box-footer">
                       More info <i className="fas fa-arrow-circle-right" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 {/* ./col */}
@@ -115,22 +116,22 @@ export default class Dashboard extends Component {
                       <div className="card-tools">
                         <ul className="nav nav-pills ml-auto">
                           <li className="nav-item">
-                            <a
+                            <Link
                               className="nav-link active"
                               href="#revenue-chart"
                               data-toggle="tab"
                             >
                               Area
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
-                            <a
+                            <Link
                               className="nav-link"
                               href="#sales-chart"
                               data-toggle="tab"
                             >
                               Donut
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -221,7 +222,7 @@ export default class Dashboard extends Component {
                           <img
                             className="direct-chat-img"
                             src="dist/img/user1-128x128.jpg"
-                            alt="message user image"
+                            alt="message"
                           />
                           {/* /.direct-chat-img */}
                           <div className="direct-chat-text">
@@ -245,7 +246,7 @@ export default class Dashboard extends Component {
                           <img
                             className="direct-chat-img"
                             src="dist/img/user3-128x128.jpg"
-                            alt="message user image"
+                            alt="message"
                           />
                           {/* /.direct-chat-img */}
                           <div className="direct-chat-text">
@@ -268,7 +269,7 @@ export default class Dashboard extends Component {
                           <img
                             className="direct-chat-img"
                             src="dist/img/user1-128x128.jpg"
-                            alt="message user image"
+                            alt="message"
                           />
                           {/* /.direct-chat-img */}
                           <div className="direct-chat-text">
@@ -292,7 +293,7 @@ export default class Dashboard extends Component {
                           <img
                             className="direct-chat-img"
                             src="dist/img/user3-128x128.jpg"
-                            alt="message user image"
+                            alt="message"
                           />
                           {/* /.direct-chat-img */}
                           <div className="direct-chat-text">
@@ -307,8 +308,9 @@ export default class Dashboard extends Component {
                       <div className="direct-chat-contacts">
                         <ul className="contacts-list">
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <img
+                                alt="logo"
                                 className="contacts-list-img"
                                 src="dist/img/user1-128x128.jpg"
                               />
@@ -324,14 +326,15 @@ export default class Dashboard extends Component {
                                 </span>
                               </div>
                               {/* /.contacts-list-info */}
-                            </a>
+                            </Link>
                           </li>
                           {/* End Contact Item */}
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <img
                                 className="contacts-list-img"
                                 src="dist/img/user7-128x128.jpg"
+                                alt="logo"
                               />
                               <div className="contacts-list-info">
                                 <span className="contacts-list-name">
@@ -345,14 +348,15 @@ export default class Dashboard extends Component {
                                 </span>
                               </div>
                               {/* /.contacts-list-info */}
-                            </a>
+                            </Link>
                           </li>
                           {/* End Contact Item */}
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <img
                                 className="contacts-list-img"
                                 src="dist/img/user3-128x128.jpg"
+                                alt="logo"
                               />
                               <div className="contacts-list-info">
                                 <span className="contacts-list-name">
@@ -366,11 +370,11 @@ export default class Dashboard extends Component {
                                 </span>
                               </div>
                               {/* /.contacts-list-info */}
-                            </a>
+                            </Link>
                           </li>
                           {/* End Contact Item */}
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <img
                                 className="contacts-list-img"
                                 src="dist/img/user5-128x128.jpg"
@@ -387,11 +391,11 @@ export default class Dashboard extends Component {
                                 </span>
                               </div>
                               {/* /.contacts-list-info */}
-                            </a>
+                            </Link>
                           </li>
                           {/* End Contact Item */}
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <img
                                 className="contacts-list-img"
                                 src="dist/img/user6-128x128.jpg"
@@ -408,11 +412,11 @@ export default class Dashboard extends Component {
                                 </span>
                               </div>
                               {/* /.contacts-list-info */}
-                            </a>
+                            </Link>
                           </li>
                           {/* End Contact Item */}
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               <img
                                 className="contacts-list-img"
                                 src="dist/img/user8-128x128.jpg"
@@ -429,7 +433,7 @@ export default class Dashboard extends Component {
                                 </span>
                               </div>
                               {/* /.contacts-list-info */}
-                            </a>
+                            </Link>
                           </li>
                           {/* End Contact Item */}
                         </ul>
@@ -468,29 +472,29 @@ export default class Dashboard extends Component {
                       <div className="card-tools">
                         <ul className="pagination pagination-sm">
                           <li className="page-item">
-                            <a href="#" className="page-link">
+                            <Link href="#" className="page-link">
                               «
-                            </a>
+                            </Link>
                           </li>
                           <li className="page-item">
-                            <a href="#" className="page-link">
+                            <Link href="#" className="page-link">
                               1
-                            </a>
+                            </Link>
                           </li>
                           <li className="page-item">
-                            <a href="#" className="page-link">
+                            <Link href="#" className="page-link">
                               2
-                            </a>
+                            </Link>
                           </li>
                           <li className="page-item">
-                            <a href="#" className="page-link">
+                            <Link href="#" className="page-link">
                               3
-                            </a>
+                            </Link>
                           </li>
                           <li className="page-item">
-                            <a href="#" className="page-link">
+                            <Link href="#" className="page-link">
                               »
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -833,16 +837,16 @@ export default class Dashboard extends Component {
                             className="dropdown-menu float-right"
                             role="menu"
                           >
-                            <a href="#" className="dropdown-item">
+                            <Link href="#" className="dropdown-item">
                               Add new event
-                            </a>
-                            <a href="#" className="dropdown-item">
+                            </Link>
+                            <Link href="#" className="dropdown-item">
                               Clear events
-                            </a>
+                            </Link>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item">
+                            <Link href="#" className="dropdown-item">
                               View calendar
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <button
