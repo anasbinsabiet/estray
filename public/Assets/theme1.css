@@ -1,0 +1,91 @@
+:root {
+    --primary-color: #fa4f09;
+    --primary-links-hover-color: #1a1a1a;
+    --primary-bg-color: #fbf4f2;
+    --header-bg-color: #fbf4f2;
+    --footer-bg-color: #f8f8f8;
+    --primary-dark-color: #1a1a1a;
+    --title-color: #1a1a1a;
+    --fw-title-color: #1a1a1a;
+    --btn-bg-color: #fa4f09;
+    --btn-hover-color: #1a1a1a;
+    --txt-select-bg-color: #f9f3e5;
+    --logo-height: 40px;
+}
+
+#main-header {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+#site-footer {
+    position: relative;
+}
+
+#header-wave {
+    margin-bottom: -1px;
+    width: 100%;
+}
+
+#magic-search .search-submit {
+    display: none;
+}
+
+.onsale .onsale-svg {
+    height: 100%;
+}
+
+#header-wave * {
+    fill: transparent;
+}
+
+@media (max-width: 1199px) {
+    #header-wave {
+        height: 20px;
+    }
+
+    :root #main-header {
+        margin-bottom: 32px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #header-wave {
+        height: 45px;
+    }
+
+    :root #main-header {
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+.header-icons {
+    display: none;
+}
+
+@media (max-width: 1199px) {
+    .header-info {
+        margin-top: 1rem;
+    }
+}
+
+.entry-categories {
+    display: none;
+}
+
+.post-author {
+    display: none;
+}
+
+.blog-tile .post-date {
+    display: none;
+}
+
+.post-comment-link {
+    display: none;
+}
+
+.product_meta .posted_in {
+    display: none;
+}

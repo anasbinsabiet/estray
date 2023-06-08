@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
+}
+
+.home {
+  width: 100vw;
+  /* background-color: rgb(23, 0, 44); */
+  background-color: white;
+  color: white;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  columns: black;
+}
+
+nav.navBottom {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+.navTop svg.svg-inline--fa {
+  padding: 10px;
+}
+
+.dropdown-toggle::after {
+  border-top-width: 7px;
+  rotate: -11deg;
+}
