@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/estray/static/css/main.a56acf39.css",
+    "main.js": "/estray/static/js/main.14941d77.js",
+    "static/js/787.db46c676.chunk.js": "/estray/static/js/787.db46c676.chunk.js",
+    "index.html": "/estray/index.html",
+    "main.a56acf39.css.map": "/estray/static/css/main.a56acf39.css.map",
+    "main.14941d77.js.map": "/estray/static/js/main.14941d77.js.map",
+    "787.db46c676.chunk.js.map": "/estray/static/js/787.db46c676.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a56acf39.css",
+    "static/js/main.14941d77.js"
+  ]
+}
