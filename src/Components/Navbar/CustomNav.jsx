@@ -18,7 +18,7 @@ const CustomNav = (props) => {
   return (
     <nav
       id="pr-nav"
-      className="primary-menu navbar navbar-expand-lg navbar-dark nav-white-desktop"
+      className="primary-menu navbar navbar-expand-lg navbar-dark nav-white-desktop w-100"
     >
       <div className="container-fluid primary-menu-inner px-0">
         <div className="top-wrap">
@@ -58,11 +58,6 @@ const CustomNav = (props) => {
             <li className="menu-item nav-item">
               <Link to="/" className="nav-link">
                 <span>Home</span>
-              </Link>
-            </li>
-            <li className="menu-item nav-item">
-              <Link itemProp="url" to="/cart" className="nav-link">
-                <span itemProp="name">Cart</span>
               </Link>
             </li>
             <li className="menu-item nav-item">
