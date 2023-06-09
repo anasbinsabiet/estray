@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthContextProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
+import { saveAs } from "file-saver";
 
 const CustomNav = (props) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -94,7 +95,17 @@ const CustomNav = (props) => {
                 </Link>
               </li>
             )}
+            <li className="menu-item nav-item">
+              <div
+                style={{ cursor: "pointer" }}
+                className="nav-link"
+                onClick={() => saveAs("../../Assets/sample.png", "Sample")}
+              >
+                <span itemProp="name">Sample Download</span>
+              </div>
+            </li>
           </ul>
+
           <div className="header-cta">
             <Link to="/product">
               <div className="d-inline-block elementor-button-link elementor-button elementor-size-md">
