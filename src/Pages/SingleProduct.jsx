@@ -259,10 +259,10 @@ const SingleProduct = () => {
       width: ${formItem?.size === "12/12" ? "20%" : "30%"};
     }
     .triangle2.back {
-      border-bottom-color: #a68c67 !important;
+      border-bottom-color: ${formItem?.inSideColorBack} !important;
     }
     .triangle.back {
-      border-bottom-color: #3f6791 !important;
+      border-bottom-color: ${formItem?.outSideColorBack} !important;
     }
     .left-side p.link1 {
       color: ${formItem?.website_title_color};
@@ -552,32 +552,6 @@ const SingleProduct = () => {
                     </div>
 
                     <div className="col-md-6">
-                      <b className="lh-lg">Outside Color</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control form-sm"
-                        type="color"
-                        name="outSideColor"
-                        value={formItem.outSideColor}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <b className="lh-lg">Inside Color</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control form-sm"
-                        type="color"
-                        name="inSideColor"
-                        value={formItem.inSideColor}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
                       <b className="lh-lg">Left Image</b>
                     </div>
                     <div className="col-md-6">
@@ -618,6 +592,31 @@ const SingleProduct = () => {
                         className="form-control"
                         type="file"
                         onChange={handleIconUpload}
+                      />
+                    </div>
+                    <div className="col-md-6">
+                      <b className="lh-lg">Outside Color</b>
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        className="form-control form-sm"
+                        type="color"
+                        name="outSideColor"
+                        value={formItem.outSideColor}
+                        onChange={handleChange}
+                      />
+                    </div>
+
+                    <div className="col-md-6">
+                      <b className="lh-lg">Inside Color</b>
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        className="form-control form-sm"
+                        type="color"
+                        name="inSideColor"
+                        value={formItem.inSideColor}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -734,6 +733,31 @@ const SingleProduct = () => {
                           />
                         </span>
                       </div>
+                    </div>
+                    <div className="col-md-6">
+                      <b className="lh-lg">Outside Color</b>
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        className="form-control form-sm"
+                        type="color"
+                        name="outSideColorBack"
+                        value={formItem.outSideColorBack}
+                        onChange={handleChange}
+                      />
+                    </div>
+
+                    <div className="col-md-6">
+                      <b className="lh-lg">Inside Color</b>
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        className="form-control form-sm"
+                        type="color"
+                        name="inSideColorBack"
+                        value={formItem.inSideColorBack}
+                        onChange={handleChange}
+                      />
                     </div>
                   </div>
                 </>
