@@ -39,7 +39,7 @@ const Home = () => {
                                 </div>
                                 <div className="elementor-element elementor-element-a52afdf elementor-widget elementor-widget-text-editor">
                                   <div className="elementor-widget-container">
-                                    Let’s vaping together{" "}
+                                    Let’s design your own Ashtray
                                   </div>
                                 </div>
                                 <section className="elementor-section elementor-inner-section elementor-element elementor-element-d2c0f03 elementor-section-full_width elementor-section-height-default elementor-section-height-default">
@@ -77,11 +77,11 @@ const Home = () => {
                                       decoding="async"
                                       width={942}
                                       height={1010}
-                                      src="../../wapo.b-cdn.net/wp-content/uploads/2022/01/products-new.png"
+                                      src="../../Assets/banner.png"
                                       className="attachment-large size-large wp-image-14441"
                                       alt=""
                                       loading="lazy"
-                                      srcSet="https://wapo.b-cdn.net/wp-content/uploads/2022/01/products-new.png 942w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/products-new-280x300.png 280w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/products-new-768x823.png 768w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/products-new-600x643.png 600w"
+                                      srcSet="../../Assets/banner.png"
                                       sizes="(max-width: 942px) 100vw, 942px"
                                     />
                                   </div>
@@ -186,7 +186,7 @@ const Home = () => {
                                         <div className="elementor-element elementor-element-89bc628 elementor-widget elementor-widget-heading">
                                           <div className="elementor-widget-container">
                                             <h2 className="elementor-heading-title elementor-size-default">
-                                              Vape kits
+                                              Ashtray kits
                                             </h2>
                                           </div>
                                         </div>
@@ -310,11 +310,11 @@ const Home = () => {
                                       decoding="async"
                                       width={882}
                                       height={778}
-                                      src="https://wapo.b-cdn.net/wp-content/uploads/2022/01/vaping-devices.png"
+                                      src="../../Assets/banner.png"
                                       className="attachment-large size-large wp-image-14597"
                                       alt=""
                                       loading="lazy"
-                                      srcSet="https://wapo.b-cdn.net/wp-content/uploads/2022/01/vaping-devices.png 882w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/vaping-devices-300x265.png 300w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/vaping-devices-768x677.png 768w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/vaping-devices-600x529.png 600w"
+                                      srcSet="../../Assets/banner.png"
                                       sizes="(max-width: 882px) 100vw, 882px"
                                     />
                                   </div>
@@ -365,72 +365,6 @@ const Home = () => {
                             </div>
                           </div>
                         </section>
-                        {/* <section className="elementor-section elementor-inner-section elementor-element elementor-element-a9634c9 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default">
-                          <div className="elementor-container elementor-column-gap-custom">
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-cafcc53">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-37a7108 elementor-widget elementor-widget-counter">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-counter">
-                                      <div className="elementor-counter-number-wrapper">
-                                        <span className="elementor-counter-number-prefix" />
-                                        <span className="elementor-counter-number">
-                                          0
-                                        </span>
-                                        <span className="elementor-counter-number-suffix">
-                                          K
-                                        </span>
-                                      </div>
-                                      <div className="elementor-counter-title">
-                                        E-liquids sold last month
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-bf40db0">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-117f76e elementor-widget elementor-widget-counter">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-counter">
-                                      <div className="elementor-counter-number-wrapper">
-                                        <span className="elementor-counter-number-prefix" />
-                                        <span className="elementor-counter-number">
-                                          0
-                                        </span>
-                                        <span className="elementor-counter-number-suffix" />
-                                      </div>
-                                      <div className="elementor-counter-title">
-                                        Shops around the world
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-adde5fd">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-d234a65 elementor-widget elementor-widget-counter">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-counter">
-                                      <div className="elementor-counter-number-wrapper">
-                                        <span className="elementor-counter-number-prefix" />
-                                        <span className="elementor-counter-number">
-                                          0
-                                        </span>
-                                        <span className="elementor-counter-number-suffix" />
-                                      </div>
-                                      <div className="elementor-counter-title">
-                                        Years of experience
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </section> */}
                       </div>
                     </div>
                   </div>
@@ -614,11 +548,11 @@ const Home = () => {
                                       decoding="async"
                                       width={970}
                                       height={1024}
-                                      src="https://wapo.b-cdn.net/wp-content/uploads/2022/01/prodict-about-l-vape-1-970x1024.png"
+                                      src="../../Assets/banner.png"
                                       className="attachment-large size-large wp-image-14405"
                                       alt=""
                                       loading="lazy"
-                                      srcSet="https://wapo.b-cdn.net/wp-content/uploads/2022/01/prodict-about-l-vape-1-970x1024.png 970w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/prodict-about-l-vape-1-284x300.png 284w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/prodict-about-l-vape-1-768x810.png 768w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/prodict-about-l-vape-1-1456x1536.png 1456w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/prodict-about-l-vape-1-600x633.png 600w, https://wapo.b-cdn.net/wp-content/uploads/2022/01/prodict-about-l-vape-1.png 1774w"
+                                      srcSet="../../Assets/banner.png"
                                       sizes="(max-width: 970px) 100vw, 970px"
                                     />
                                   </div>
@@ -649,7 +583,7 @@ const Home = () => {
                                       </li>
                                       <li>
                                         <h6 className="text-white">
-                                          How to charge a vape device?
+                                          How to change a Ashtray device?
                                         </h6>
                                       </li>
                                       <li>
