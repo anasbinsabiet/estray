@@ -12,7 +12,7 @@ const CustomFooter = () => {
                 <div className="widget widget_text">
                   <div className="widget-content">
                     <div className="textwidget">
-                      <h4 className="text-center">Estray Store</h4>
+                      <h4 className="text-center">NYA Worldwide</h4>
                       <p>
                         Create your custom design product and order by using our
                         system.
@@ -47,7 +47,6 @@ const CustomFooter = () => {
                     <form
                       id="mc4wp-form-1"
                       className="mc4wp-form mc4wp-form-2016"
-                      method="post"
                     >
                       <div className="mc4wp-form-fields">
                         <div className="theme-mailchimp">
@@ -73,8 +72,8 @@ const CustomFooter = () => {
             </div>
           </div>
           <div className="footer-bottom">
-            <p className="footer-copyright text-center w-100">
-              Copyright ©2023 Estray Store. All rights reserved.
+            <p className="footer-copyright text-center w-100 mb-3">
+              Copyright © 2023 NYA Worldwide. All rights reserved.
             </p>
           </div>
         </div>

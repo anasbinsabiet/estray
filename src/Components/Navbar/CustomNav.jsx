@@ -24,7 +24,7 @@ const CustomNav = (props) => {
       <div className="container-fluid primary-menu-inner px-0">
         <div className="top-wrap">
           <Link className="custom-logo-link" to="/">
-            <h5 className="m-0">Estray Store</h5>
+            <h5 className="m-0">NYA Worldwide</h5>
           </Link>{" "}
           <button
             id="mobile-toggle"
@@ -95,15 +95,6 @@ const CustomNav = (props) => {
                 </Link>
               </li>
             )}
-            <li className="menu-item nav-item">
-              <div
-                style={{ cursor: "pointer" }}
-                className="nav-link"
-                onClick={() => saveAs("../../Assets/sample.png", "Sample")}
-              >
-                <span itemProp="name">Sample Download</span>
-              </div>
-            </li>
           </ul>
 
           <div className="header-cta">

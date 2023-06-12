@@ -13,13 +13,17 @@ import Wishlist from "../Pages/Wishlist";
 import PrivateRouteProvider from "../Components/PrivateAuth/PrivateRoute";
 import Orders from "../Pages/Orders";
 import AdminPanel from "../Pages/AdminPanel";
+import Shop from "../Pages/Shop";
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/product" element={<SingleProduct />} />
-      <Route path="/products/:category" element={<Products />} />
+      <Route path="/product" element={<Shop />} />
+      <Route path="/product/upload" element={<SingleProduct type="upload" />} />
+      <Route path="/product/custom" element={<SingleProduct type="custom" />} />
+      {/* <Route path="/product" element={<SingleProduct />} />
+      <Route path="/products/:category" element={<Products />} /> */}
       <Route
         path="/products/:category/:id"
         element={

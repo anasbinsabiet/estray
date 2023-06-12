@@ -63,7 +63,7 @@ const SignUp = () => {
         <div className="login-container signup-container">
           <div className="logo-image">
             <Link to="/">
-              <h6>Estray Store</h6>
+              <h6>NYA Worldwide</h6>
             </Link>
           </div>
           <div>

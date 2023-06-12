@@ -26,7 +26,11 @@ const Home = () => {
                       <div className="elementor-widget-wrap elementor-element-populated">
                         <section className="elementor-section elementor-inner-section elementor-element elementor-element-00f9423 elementor-reverse-tablet elementor-reverse-mobile elementor-section-height-min-height elementor-section-boxed elementor-section-height-default">
                           <div className="elementor-container elementor-column-gap-no">
-                            <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element mt-5">
+                            <div
+                              className={`elementor-column elementor-col-50 elementor-inner-column elementor-element ${
+                                window.innerWidth > 768 ? "mt-5" : ""
+                              }`}
+                            >
                               <div className="elementor-widget-wrap elementor-element-populated mt-5">
                                 <div className="elementor-element elementor-element-4c229c9 elementor-widget elementor-widget-text-editor mt-5">
                                   <div className="elementor-widget-container">
@@ -46,15 +50,13 @@ const Home = () => {
                                           <div className="elementor-widget-container">
                                             <div className="elementor-button-wrapper">
                                               <Link
-                                                href="https://wapo.peerduck.com/contact-us"
+                                                to="/product"
                                                 className="elementor-button-link elementor-button elementor-size-xl"
                                                 role="button"
                                               >
                                                 <span className="elementor-button-content-wrapper">
                                                   <span className="elementor-button-text">
-                                                    <Link to="/product">
-                                                      Shop now
-                                                    </Link>
+                                                    Shop now
                                                   </span>
                                                 </span>
                                               </Link>
@@ -346,7 +348,7 @@ const Home = () => {
                                   <div className="elementor-widget-container">
                                     <div className="elementor-button-wrapper">
                                       <Link
-                                        href="https://wapo.peerduck.com/contact-us"
+                                        to="/product"
                                         className="elementor-button-link elementor-button elementor-size-xl"
                                         role="button"
                                       >
@@ -363,7 +365,7 @@ const Home = () => {
                             </div>
                           </div>
                         </section>
-                        <section className="elementor-section elementor-inner-section elementor-element elementor-element-a9634c9 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default">
+                        {/* <section className="elementor-section elementor-inner-section elementor-element elementor-element-a9634c9 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default">
                           <div className="elementor-container elementor-column-gap-custom">
                             <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-cafcc53">
                               <div className="elementor-widget-wrap elementor-element-populated">
@@ -428,407 +430,7 @@ const Home = () => {
                               </div>
                             </div>
                           </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section className="elementor-section elementor-top-section elementor-element elementor-element-af402d8 dark-shop elementor-section-boxed elementor-section-height-default elementor-section-height-default">
-                  <div className="elementor-background-overlay" />
-                  <div className="elementor-container elementor-column-gap-default">
-                    <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-515e5dd">
-                      <div className="elementor-widget-wrap elementor-element-populated">
-                        <section className="elementor-section elementor-inner-section elementor-element elementor-element-2606d96 elementor-section-full_width elementor-section-height-default elementor-section-height-default">
-                          <div className="elementor-container elementor-column-gap-no">
-                            <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d7b64f7">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-296079b elementor-widget elementor-widget-text-editor">
-                                  <div className="elementor-widget-container">
-                                    Our products{" "}
-                                  </div>
-                                </div>
-                                <div className="elementor-element elementor-element-25457fb elementor-widget-mobile__width-initial elementor-widget elementor-widget-text-editor">
-                                  <div className="elementor-widget-container">
-                                    Welcome to our online vaping store{" "}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-facb49e">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-29efb19 elementor-widget elementor-widget-text-editor">
-                                  <div className="elementor-widget-container">
-                                    <p>
-                                      We offer a wide range of quality products,
-                                      an easy shopping process, express delivery
-                                      and first-class service.
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                        <section className="elementor-section elementor-inner-section elementor-element elementor-element-be1d051 elementor-section-full_width elementor-section-height-default elementor-section-height-default">
-                          <div className="elementor-container elementor-column-gap-default">
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d9b4ad6">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-7fff1c3 elementor-widget elementor-widget-shortcode">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-shortcode">
-                                      <div className="woocommerce columns-1 ">
-                                        <ul className="products columns-1">
-                                          <li className="product type-product post-13080 status-publish first instock product_cat-vape product_cat-vape-kits product_cat-vape-pods product_tag-aroma product_tag-e-liquid product_tag-pod product_tag-relax has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <Link
-                                              href="https://wapo.peerduck.com/product/mr-vapo-e-liquid-strawberry-30ml/"
-                                              className="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                                            >
-                                              <img
-                                                width={300}
-                                                height={300}
-                                                src="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-2-300x300.png"
-                                                className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                alt=""
-                                                decoding="async"
-                                                loading="lazy"
-                                                srcSet="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-2-300x300.png 300w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-2-150x150.png 150w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-2-100x100.png 100w"
-                                                sizes="(max-width: 300px) 100vw, 300px"
-                                              />
-                                              <h2 className="woocommerce-loop-product__title">
-                                                Mr. Vapo E-liquid 30ml
-                                              </h2>
-                                              <span className="price">
-                                                <span className="woocommerce-Price-amount amount">
-                                                  <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">
-                                                      $
-                                                    </span>
-                                                    4.50
-                                                  </bdi>
-                                                </span>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              href="index6168.html?add-to-cart=13080"
-                                              className="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                              aria-label="Add “Mr. Vapo E-liquid 30ml” to your cart"
-                                              rel="nofollow"
-                                            >
-                                              Add to cart
-                                            </Link>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9655c86">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-e2241c1 elementor-widget elementor-widget-shortcode">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-shortcode">
-                                      <div className="woocommerce columns-1 ">
-                                        <ul className="products columns-1">
-                                          <li className="product type-product post-13084 status-publish first instock product_cat-e-liquids product_cat-vape product_cat-vape-pods product_tag-aroma product_tag-e-liquid product_tag-pod product_tag-relax has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <Link
-                                              href="https://wapo.peerduck.com/product/starter-kit-1/"
-                                              className="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                                            >
-                                              <img
-                                                width={300}
-                                                height={300}
-                                                src="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-6-300x300.png"
-                                                className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                alt=""
-                                                decoding="async"
-                                                loading="lazy"
-                                                srcSet="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-6-300x300.png 300w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-6-150x150.png 150w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-6-100x100.png 100w"
-                                                sizes="(max-width: 300px) 100vw, 300px"
-                                              />
-                                              <h2 className="woocommerce-loop-product__title">
-                                                Starter Kit 1
-                                              </h2>
-                                              <span className="price">
-                                                <span className="woocommerce-Price-amount amount">
-                                                  <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">
-                                                      $
-                                                    </span>
-                                                    54.00
-                                                  </bdi>
-                                                </span>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              href="index9fd5.html?add-to-cart=13084"
-                                              className="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                              aria-label="Add “Starter Kit 1” to your cart"
-                                              rel="nofollow"
-                                            >
-                                              Add to cart
-                                            </Link>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3ff5a69">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-4cf90d2 elementor-widget elementor-widget-shortcode">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-shortcode">
-                                      <div className="woocommerce columns-1 ">
-                                        <ul className="products columns-1">
-                                          <li className="product type-product post-13079 status-publish first instock product_cat-accessories product_cat-e-liquids product_cat-vape-pods product_tag-aroma product_tag-pod product_tag-relax has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <Link
-                                              href="https://wapo.peerduck.com/product/mr-vapo-pod-kit/"
-                                              className="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                                            >
-                                              <img
-                                                width={300}
-                                                height={300}
-                                                src="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-3-300x300.png"
-                                                className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                alt=""
-                                                decoding="async"
-                                                loading="lazy"
-                                                srcSet="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-3-300x300.png 300w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-3-150x150.png 150w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-3-100x100.png 100w"
-                                                sizes="(max-width: 300px) 100vw, 300px"
-                                              />
-                                              <h2 className="woocommerce-loop-product__title">
-                                                Mr. Vapo Pod Kit
-                                              </h2>
-                                              <span className="price">
-                                                <span className="woocommerce-Price-amount amount">
-                                                  <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">
-                                                      $
-                                                    </span>
-                                                    267.00
-                                                  </bdi>
-                                                </span>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              href="index653e.html?add-to-cart=13079"
-                                              className="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                              aria-label="Add “Mr. Vapo Pod Kit” to your cart"
-                                              rel="nofollow"
-                                            >
-                                              Add to cart
-                                            </Link>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                        <section className="elementor-section elementor-inner-section elementor-element elementor-element-6672ea2 elementor-section-full_width elementor-section-height-default elementor-section-height-default">
-                          <div className="elementor-container elementor-column-gap-default">
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9c9adb6">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-641a833 elementor-widget elementor-widget-shortcode">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-shortcode">
-                                      <div className="woocommerce columns-1 ">
-                                        <ul className="products columns-1">
-                                          <li className="product type-product post-13082 status-publish first instock product_cat-e-cigarettes product_cat-vape-kits product_cat-vape-pods product_tag-aroma product_tag-flavor product_tag-pod product_tag-relax product_tag-vaping has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <Link
-                                              href="https://wapo.peerduck.com/product/starter-kit-2/"
-                                              className="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                                            >
-                                              <img
-                                                width={300}
-                                                height={300}
-                                                src="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-7-300x300.png"
-                                                className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                alt=""
-                                                decoding="async"
-                                                loading="lazy"
-                                                srcSet="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-7-300x300.png 300w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-7-150x150.png 150w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-7-100x100.png 100w"
-                                                sizes="(max-width: 300px) 100vw, 300px"
-                                              />
-                                              <h2 className="woocommerce-loop-product__title">
-                                                Starter Kit 2
-                                              </h2>
-                                              <span className="price">
-                                                <span className="woocommerce-Price-amount amount">
-                                                  <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">
-                                                      $
-                                                    </span>
-                                                    65.00
-                                                  </bdi>
-                                                </span>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              href="index538e.html?add-to-cart=13082"
-                                              className="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                              aria-label="Add “Starter Kit 2” to your cart"
-                                              rel="nofollow"
-                                            >
-                                              Add to cart
-                                            </Link>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-dd32504">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-53dccbd elementor-widget elementor-widget-shortcode">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-shortcode">
-                                      <div className="woocommerce columns-1 ">
-                                        <ul className="products columns-1">
-                                          <li className="product type-product post-2181 status-publish first instock product_cat-e-cigarettes product_cat-vape-kits product_cat-vape-pods product_tag-aroma product_tag-flavor product_tag-pod product_tag-relax product_tag-vaping has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <Link
-                                              href="https://wapo.peerduck.com/product/mr-vapo-smoking-device/"
-                                              className="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                                            >
-                                              <img
-                                                width={300}
-                                                height={300}
-                                                src="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-5-300x300.png"
-                                                className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                alt=""
-                                                decoding="async"
-                                                loading="lazy"
-                                                srcSet="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-5-300x300.png 300w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-5-150x150.png 150w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-5-100x100.png 100w"
-                                                sizes="(max-width: 300px) 100vw, 300px"
-                                              />
-                                              <h2 className="woocommerce-loop-product__title">
-                                                Mr. Vapo Smoking Device
-                                              </h2>
-                                              <span className="price">
-                                                <span className="woocommerce-Price-amount amount">
-                                                  <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">
-                                                      $
-                                                    </span>
-                                                    65.00
-                                                  </bdi>
-                                                </span>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              href="index80fd.html?add-to-cart=2181"
-                                              className="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                              aria-label="Add “Mr. Vapo Smoking Device” to your cart"
-                                              rel="nofollow"
-                                            >
-                                              Add to cart
-                                            </Link>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ce75ca8">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-aee9086 elementor-widget elementor-widget-shortcode">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-shortcode">
-                                      <div className="woocommerce columns-1 ">
-                                        <ul className="products columns-1">
-                                          <li className="product type-product post-13078 status-publish first instock product_cat-e-liquids product_cat-vape product_cat-vape-pods product_tag-aroma product_tag-e-liquid product_tag-pod product_tag-relax has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                            <Link
-                                              href="/"
-                                              className="woocommerce-LoopProduct-link woocommerce-loop-product__link"
-                                            >
-                                              <img
-                                                width={300}
-                                                height={300}
-                                                src="../../wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-4-300x300.png"
-                                                className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                alt=""
-                                                decoding="async"
-                                                loading="lazy"
-                                                srcSet="https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-4-300x300.png 300w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-4-150x150.png 150w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-4-768x768.png 768w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-4-600x600.png 600w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-4-100x100.png 100w, https://wapo.b-cdn.net/wp-content/uploads/2021/12/shop-product-4.png 1000w"
-                                                sizes="(max-width: 300px) 100vw, 300px"
-                                              />
-                                              <h2 className="woocommerce-loop-product__title">
-                                                Disposable e-cigarette
-                                              </h2>
-                                              <span className="price">
-                                                <span className="woocommerce-Price-amount amount">
-                                                  <bdi>
-                                                    <span className="woocommerce-Price-currencySymbol">
-                                                      $
-                                                    </span>
-                                                    450.00
-                                                  </bdi>
-                                                </span>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              href="index3704.html?add-to-cart=13078"
-                                              className="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                              aria-label="Add “Disposable e-cigarette” to your cart"
-                                              rel="nofollow"
-                                            >
-                                              Add to cart
-                                            </Link>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                        <section className="elementor-section elementor-inner-section elementor-element elementor-element-3dd9e2b elementor-section-boxed elementor-section-height-default elementor-section-height-default">
-                          <div className="elementor-container elementor-column-gap-default">
-                            <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-8e6d5a3">
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div className="elementor-element elementor-element-d2fb2ba elementor-widget elementor-widget-html">
-                                  <div className="elementor-widget-container"></div>
-                                </div>
-                                <div className="elementor-element elementor-element-e73451a elementor-tablet-align-center elementor-align-center elementor-widget elementor-widget-button">
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-button-wrapper">
-                                      <Link
-                                        href="https://wapo.peerduck.com/shop"
-                                        className="elementor-button-link elementor-button elementor-size-xl"
-                                        role="button"
-                                      >
-                                        <span className="elementor-button-content-wrapper">
-                                          <span className="elementor-button-icon elementor-align-icon-right">
-                                            <i
-                                              aria-hidden="true"
-                                              className="fas fa-long-arrow-alt-right"
-                                            />
-                                          </span>
-                                          <span className="elementor-button-text">
-                                            View all products
-                                          </span>
-                                        </span>
-                                      </Link>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </section>
+                        </section> */}
                       </div>
                     </div>
                   </div>

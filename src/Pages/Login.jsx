@@ -87,7 +87,7 @@ const Login = () => {
         <div className="login-container">
           <div className="logo-image">
             <Link to="/">
-              <h6>Estray Store</h6>
+              <h6>NYA Worldwide</h6>
             </Link>
           </div>
           <div>

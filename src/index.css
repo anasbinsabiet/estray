@@ -246,6 +246,22 @@ p.textBase {
   margin: 10px 0;
 }
 
+img.shop-preview-img {
+  height: 226px;
+}
+
+section.elementor-section.elementor-top-section.elementor-element.elementor-element-40e3ea2.elementor-section-boxed.elementor-section-height-default.elementor-section-height-default {
+  opacity: 0.95;
+}
+
+.elementor-14555 .elementor-element.elementor-element-632894d img {
+  height: 270px !important;
+}
+
+.elementor-14555 .elementor-element.elementor-element-9bdeb54 img {
+  height: 420px !important;
+}
+
 @media (max-width: 768px) {
   .elementor-widget.elementor-widget-image {
     margin-top: 90px;
@@ -257,5 +273,13 @@ p.textBase {
 
   .custom-logo-link {
     margin-right: 12.125rem;
+  }
+
+  img.shop-preview-img {
+    height: 216px;
+  }
+
+  .elementor-column.elementor-col-50.elementor-inner-column.elementor-element.elementor-element-a608c67 {
+    margin-top: 5rem;
   }
 }

@@ -18,7 +18,7 @@ import {
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 
-const SingleProduct = () => {
+const SingleProduct = ({ type }) => {
   const toast = useToast();
   const { id, category } = useParams();
   // const [item, setItem] = useState(null);
@@ -50,7 +50,7 @@ const SingleProduct = () => {
   const { addSingleItemToCart } = useContext(CartContext);
   // const [product, setProduct] = useState(null);
   const product = {
-    cardDetails: "Smart Design Estray",
+    cardDetails: "Custom Design Estray",
     category: "Vape",
     gender: "Female",
     price: "179",
@@ -219,44 +219,44 @@ const SingleProduct = () => {
 
   const Div = styled.div`
     .triangle {
-      border-width: ${formItem?.size === "12/12" ? "200px" : "250px"};
-      border-bottom: ${formItem?.size === "12/12" ? "300px" : "400px"} solid
+      border-width: ${formItem?.size === "15/4" ? "200px" : "250px"};
+      border-bottom: ${formItem?.size === "15/4" ? "300px" : "400px"} solid
         ${formItem?.outSideColor} !important;
     }
     .triangle2 {
-      padding-top: ${formItem?.size === "12/12" ? "101px" : "132px"};
-      margin-left: ${formItem?.size === "12/12" ? "-87px" : "-123px"};
-      border-width: ${formItem?.size === "12/12" ? "90px" : "125px"};
-      border-bottom: ${formItem?.size === "12/12" ? "145px" : "200px"} solid
+      padding-top: ${formItem?.size === "15/4" ? "101px" : "132px"};
+      margin-left: ${formItem?.size === "15/4" ? "-87px" : "-123px"};
+      border-width: ${formItem?.size === "15/4" ? "90px" : "125px"};
+      border-bottom: ${formItem?.size === "15/4" ? "145px" : "200px"} solid
         ${formItem?.inSideColor} !important;
     }
     .text1 {
-      margin-top: ${formItem?.size === "12/12" ? "20px" : "50px"} !important;
+      margin-top: ${formItem?.size === "15/4" ? "20px" : "50px"} !important;
       color: ${formItem?.text1Color};
     }
     .text2 {
-      top: ${formItem?.size === "12/12" ? "250px" : "37.5em"};
+      top: ${formItem?.size === "15/4" ? "250px" : "37.5em"};
       color: ${formItem?.text2Color};
     }
     img.icon {
-      margin-top: ${formItem?.size === "12/12" ? "12px" : "30px"};
-      margin-left: ${formItem?.size === "12/12" ? "-37px" : "-31px"};
-      width: ${formItem?.size === "12/12" ? "75px" : "70px"} !important;
+      margin-top: ${formItem?.size === "15/4" ? "12px" : "30px"};
+      margin-left: ${formItem?.size === "15/4" ? "-37px" : "-31px"};
+      width: ${formItem?.size === "15/4" ? "75px" : "70px"} !important;
     }
     .logo1 {
-      margin-left: ${formItem?.size === "12/12" ? "-59px" : "-90px"};
-      top: ${formItem?.size === "12/12" ? "280px" : "11.7em"};
+      margin-left: ${formItem?.size === "15/4" ? "-59px" : "-90px"};
+      top: ${formItem?.size === "15/4" ? "280px" : "11.7em"};
     }
     img.logo2 {
-      top: ${formItem?.size === "12/12" ? "165px" : "223px"};
-      left: ${formItem?.size === "12/12" ? "120px" : "116px"};
+      top: ${formItem?.size === "15/4" ? "165px" : "223px"};
+      left: ${formItem?.size === "15/4" ? "120px" : "116px"};
     }
     img.logo3 {
-      top: ${formItem?.size === "12/12" ? "170px" : "225px"};
-      left: ${formItem?.size === "12/12" ? "262px" : "301px"};
+      top: ${formItem?.size === "15/4" ? "170px" : "225px"};
+      left: ${formItem?.size === "15/4" ? "262px" : "301px"};
     }
     .triangle2 img {
-      width: ${formItem?.size === "12/12" ? "20%" : "30%"};
+      width: ${formItem?.size === "15/4" ? "20%" : "30%"};
     }
     .triangle2.back {
       border-bottom-color: ${formItem?.inSideColorBack} !important;
@@ -278,15 +278,15 @@ const SingleProduct = () => {
     }
     img.logo3.back {
       top: unset;
-      bottom: ${formItem?.size === "12/12" ? "20.9em" : "11.9em"};
+      bottom: ${formItem?.size === "15/4" ? "20.9em" : "11.9em"};
     }
     .left-side .row {
-      left: ${formItem?.size === "12/12" ? "105px" : "104px"};
-      bottom: ${formItem?.size === "12/12" ? "337px" : "185px"};
-      width: ${formItem?.size === "12/12" ? "180px" : "233px"};
+      left: ${formItem?.size === "15/4" ? "106px" : "107px"};
+      bottom: ${formItem?.size === "15/4" ? "26.5rem" : "18.5rem"};
+      width: ${formItem?.size === "15/4" ? "180px" : "233px"};
     }
     p.textBase {
-      margin-top: ${formItem?.size === "12/12" ? "158px" : "221px"};
+      margin-top: ${formItem?.size === "15/4" ? "158px" : "221px"};
     }
   `;
   return (
@@ -295,7 +295,9 @@ const SingleProduct = () => {
       <br />
       <br />
       <div className="container mt-5">
-        <h4 style={{ marginLeft: "-15px" }}>{product.cardDetails}</h4>
+        <h4 style={{ marginLeft: "-15px" }} className="mt-2">
+          {product.cardDetails}
+        </h4>
         <div className="row w-100">
           <div className="col pr-3 pl-0" id="divToPrint">
             <div
@@ -305,7 +307,7 @@ const SingleProduct = () => {
                   : "py-4 border bg-light"
               }`}
             >
-              {customDesignPreviewURL && (
+              {type === "upload" && customDesignPreviewURL ? (
                 <img
                   className="custom-design-preview w-100"
                   alt="customDesignPreview"
@@ -313,8 +315,15 @@ const SingleProduct = () => {
                   height="58"
                   width="73"
                 />
+              ) : (
+                ""
               )}
-              {!customDesignPreviewURL && (
+              {type === "upload" && !customDesignPreviewURL ? (
+                <h2 className="text-center py-5">No file choosen!</h2>
+              ) : (
+                ""
+              )}
+              {type === "custom" && (
                 <>
                   <Div id="divToPrint1">
                     <div className="triangle">
@@ -432,20 +441,23 @@ const SingleProduct = () => {
           </div>
           <div className="col form-side p-0">
             <div className="p-3 border bg-light">
-              <div className="row w-100">
-                <div className="col-md-6">
-                  <b className="lh-lg">Upload your Design</b>
-                </div>
-                <div className="col-md-6">
-                  <input
-                    className="form-control"
-                    type="file"
-                    onChange={handleCustomDesignUpload}
-                  />
-                </div>
-              </div>
-
-              <hr className="my-hr" />
+              {type === "upload" && (
+                <>
+                  <div className="row w-100">
+                    <div className="col-md-6">
+                      <b className="lh-lg">Upload your Design</b>
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        className="form-control"
+                        type="file"
+                        onChange={handleCustomDesignUpload}
+                      />
+                    </div>
+                  </div>
+                  <hr className="my-hr" />
+                </>
+              )}
 
               <div className="row w-100">
                 <div className="col-md-6">
@@ -468,8 +480,8 @@ const SingleProduct = () => {
                     name="size"
                     onChange={handleChange}
                   >
-                    <option value="16/16">16/16</option>
-                    <option value="12/12">12/12</option>
+                    <option value="15/15">15/15</option>
+                    <option value="15/4">15/4</option>
                   </select>
                 </div>
 
@@ -486,20 +498,14 @@ const SingleProduct = () => {
                       // setProduct({ ...product, quantity: +e.target.value })
                     }
                   >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
+                    <option value="2000">2000</option>
                   </select>
                 </div>
               </div>
-              {!customDesignPreviewURL && (
+              {type === "custom" && (
                 <>
                   <hr className="my-hr" />
                   <div className="row w-100">
@@ -552,7 +558,7 @@ const SingleProduct = () => {
                     </div>
 
                     <div className="col-md-6">
-                      <b className="lh-lg">Left Image</b>
+                      <b className="lh-lg">Left side upload logo</b>
                     </div>
                     <div className="col-md-6">
                       <input
@@ -563,7 +569,7 @@ const SingleProduct = () => {
                     </div>
 
                     <div className="col-md-6">
-                      <b className="lh-lg">Right Image</b>
+                      <b className="lh-lg">Right side upload logo</b>
                     </div>
                     <div className="col-md-6">
                       <input
@@ -574,7 +580,7 @@ const SingleProduct = () => {
                     </div>
 
                     <div className="col-md-6">
-                      <b className="lh-lg">Bottom Image</b>
+                      <b className="lh-lg">Bottom upload logo</b>
                     </div>
                     <div className="col-md-6">
                       <input
@@ -585,7 +591,7 @@ const SingleProduct = () => {
                     </div>
 
                     <div className="col-md-6">
-                      <b className="lh-lg">Icon</b>
+                      <b className="lh-lg">Bottom of Ashtray insert picture</b>
                     </div>
                     <div className="col-md-6">
                       <input
@@ -623,7 +629,7 @@ const SingleProduct = () => {
                   <hr className="my-hr" />
                   <div className="row w-100">
                     <div className="col-md-6">
-                      <b className="lh-lg">Website Title</b>
+                      <b className="lh-lg">Type Company Name</b>
                     </div>
                     <div className="col-md-6">
                       <div className="input-group">
@@ -646,7 +652,7 @@ const SingleProduct = () => {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <b className="lh-lg">Website Link</b>
+                      <b className="lh-lg">Type Web Address</b>
                     </div>
                     <div className="col-md-6">
                       <div className="input-group">
@@ -669,7 +675,7 @@ const SingleProduct = () => {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <b className="lh-lg">Email</b>
+                      <b className="lh-lg">Type email</b>
                     </div>
                     <div className="col-md-6">
                       <div className="input-group">
@@ -702,7 +708,7 @@ const SingleProduct = () => {
                       />
                     </div>
                     <div className="col-md-6">
-                      <b className="lh-lg">Website Logo</b>
+                      <b className="lh-lg">Right Side of Ashtray Upload Logo</b>
                     </div>
                     <div className="col-md-6">
                       <input
@@ -712,7 +718,7 @@ const SingleProduct = () => {
                       />
                     </div>
                     <div className="col-md-6">
-                      <b className="lh-lg">Slug</b>
+                      <b className="lh-lg">Bottom Type Tagline</b>
                     </div>
                     <div className="col-md-6">
                       <div className="input-group">
@@ -772,14 +778,16 @@ const SingleProduct = () => {
                       : "col-md-6 justify-content-between d-flex"
                   }`}
                 >
+                  {type === "custom" && (
+                    <button
+                      className="add-to-basket btn btn-outline-primary"
+                      onClick={printToPdf}
+                    >
+                      <FontAwesomeIcon icon={faDownload} />
+                    </button>
+                  )}
                   <button
-                    className="add-to-basket btn btn-outline-primary"
-                    onClick={printToPdf}
-                  >
-                    <FontAwesomeIcon icon={faDownload} />
-                  </button>
-                  <button
-                    className="add-to-basket btn btn-outline-primary"
+                    className="add-to-basket btn btn-secondary"
                     onClick={() => {
                       checkoutCart();
                       toast({
