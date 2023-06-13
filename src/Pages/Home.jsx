@@ -44,8 +44,8 @@ const Home = () => {
                                   <div className="elementor-widget-container"></div>
                                 </div>
                                 <div className="elementor-element elementor-element-a52afdf elementor-widget elementor-widget-text-editor">
-                                  <div className="elementor-widget-container h1">
-                                    Let’s design your
+                                  <div className="elementor-widget-container h1 text-black">
+                                    Let’s designed your
                                     <br /> own Ashtray
                                   </div>
                                 </div>
@@ -183,13 +183,13 @@ const Home = () => {
                                   </div>
                                 </div>
                                 <div className="elementor-element elementor-element-f2132d5 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor">
-                                  <div className="elementor-widget-container">
-                                    We offer a wide range of custom design
+                                  <div className="elementor-widget-container text-black">
+                                    We offer a wide range of custom designed
                                     ashtray
                                   </div>
                                 </div>
                                 <div className="elementor-element elementor-element-e035502 elementor-widget elementor-widget-text-editor">
-                                  <div className="elementor-widget-container">
+                                  <div className="elementor-widget-container text-black">
                                     Welcome to our store! There are many
                                     electronic cigarettes, e-liquids,
                                     accessories and vaping accessories in our

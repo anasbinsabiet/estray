@@ -62,10 +62,14 @@ const SingleProduct = ({ type }) => {
   const [customDesignFile, setCustomDesignFile] = useState(null);
   const [customDesignPreviewURL, setCustomDesignPreviewURL] = useState(null);
 
+  const [customDesignFileBack, setCustomDesignFileBack] = useState(null);
+  const [customDesignPreviewURLBack, setCustomDesignPreviewURLBack] =
+    useState(null);
+
   const { addSingleItemToCart } = useContext(CartContext);
   // const [product, setProduct] = useState(null);
   const product = {
-    cardDetails: "Custom Design Estray",
+    cardDetails: "Custom Design Ashtray",
     category: "Vape",
     gender: "Female",
     price: "179",
@@ -195,6 +199,20 @@ const SingleProduct = ({ type }) => {
     const reader = new FileReader();
     reader.onload = () => {
       setCustomDesignPreviewURL(reader.result);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function handleCustomDesignUploadBack(event) {
+    const file = event.target.files[0];
+
+    // Store the file in state
+    setCustomDesignFileBack(file);
+
+    // Generate a preview URL for the uploaded image
+    const reader = new FileReader();
+    reader.onload = () => {
+      setCustomDesignPreviewURLBack(reader.result);
     };
     reader.readAsDataURL(file);
   }
@@ -333,6 +351,17 @@ const SingleProduct = ({ type }) => {
               ) : (
                 ""
               )}
+              {type === "upload" && customDesignPreviewURLBack ? (
+                <img
+                  className="custom-design-preview w-100 mt-3"
+                  alt="customDesignPreview"
+                  src={customDesignPreviewURLBack}
+                  height="58"
+                  width="73"
+                />
+              ) : (
+                ""
+              )}
               {type === "upload" && !customDesignPreviewURL ? (
                 <h2 className="text-center py-5">No file choosen!</h2>
               ) : (
@@ -458,15 +487,29 @@ const SingleProduct = ({ type }) => {
             <div className="p-3 border bg-light">
               {type === "upload" && (
                 <>
+                  <h6 className="text-bold">Upload your Design</h6>
+                  <hr className="my-hr" />
                   <div className="row w-100">
                     <div className="col-md-6">
-                      <b className="lh-lg">Upload your Design</b>
+                      <b className="lh-lg">Front Image</b>
                     </div>
                     <div className="col-md-6">
                       <input
                         className="form-control"
                         type="file"
                         onChange={handleCustomDesignUpload}
+                      />
+                    </div>
+                  </div>
+                  <div className="row w-100">
+                    <div className="col-md-6">
+                      <b className="lh-lg">Back Image</b>
+                    </div>
+                    <div className="col-md-6">
+                      <input
+                        className="form-control"
+                        type="file"
+                        onChange={handleCustomDesignUploadBack}
                       />
                     </div>
                   </div>
@@ -525,7 +568,7 @@ const SingleProduct = ({ type }) => {
                   <hr className="my-hr" />
                   <div className="row w-100">
                     <div className="col-md-6">
-                      <b className="lh-lg">Title</b>
+                      <b className="lh-lg">Top Title</b>
                     </div>
                     <div className="col-md-6">
                       <div className="input-group">
@@ -549,7 +592,7 @@ const SingleProduct = ({ type }) => {
                     </div>
 
                     <div className="col-md-6">
-                      <b className="lh-lg">Subtitle</b>
+                      <b className="lh-lg">Bottom Title</b>
                     </div>
                     <div className="col-md-6">
                       <div className="input-group">

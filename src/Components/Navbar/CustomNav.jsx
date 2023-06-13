@@ -24,7 +24,19 @@ const CustomNav = (props) => {
       <div className="container-fluid primary-menu-inner px-0">
         <div className="top-wrap">
           <Link className="custom-logo-link" to="/">
-            <h5 className="m-0">NYA Worldwide</h5>
+            <h5 className="m-0">
+              <img
+                decoding="async"
+                width={200}
+                height={90}
+                src="../../Assets/nyalogo.png"
+                className="attachment-large size-large wp-image-14597"
+                alt=""
+                loading="lazy"
+                srcSet="../../Assets/nyalogo.png"
+                sizes="(max-width: 882px) 100vw, 882px"
+              />
+            </h5>
           </Link>{" "}
           <button
             id="mobile-toggle"
