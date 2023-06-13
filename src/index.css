@@ -280,6 +280,11 @@ button.btn.btn-primary.btn-block {
   background: #0e2841;
 }
 
+#pr-nav.nav-white-desktop .header-cta .elementor-button {
+  border: 1px solid #765a34 !important;
+  color: #765a34 !important;
+}
+
 @media (max-width: 768px) {
   .elementor-widget.elementor-widget-image {
     margin-top: 90px;
