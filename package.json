@@ -1,6 +1,6 @@
 {
-  "homepage": ".",
-  "name": "estray-shop",
+  "homepage": "https://anasbinsabiet.github.io/estray",
+  "name": "estray",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
