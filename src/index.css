@@ -268,6 +268,10 @@ img.home-banner {
   margin: 0 auto;
 }
 
+.home-gap img {
+  height: 251px !important;
+}
+
 @media (max-width: 768px) {
   .elementor-widget.elementor-widget-image {
     margin-top: 90px;

@@ -40,7 +40,7 @@ const Shop = () => {
               <img
                 className="shop-preview-img w-100"
                 alt="customDesignPreview"
-                src="../../Assets/preview2.png"
+                src="../../Assets/banner.png"
                 height="226"
                 width="73"
               />

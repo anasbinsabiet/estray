@@ -97,7 +97,7 @@ const Home = () => {
                             </div>
                           </div>
                         </section>
-                        <section className="elementor-section elementor-inner-section elementor-element elementor-element-1533a57 elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+                        <section className="elementor-section elementor-inner-section elementor-element elementor-element-1533a57 elementor-section-boxed elementor-section-height-default elementor-section-height-default home-gap">
                           <div className="elementor-container elementor-column-gap-no">
                             <div className="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ba803d6">
                               <div className="elementor-widget-wrap elementor-element-populated">
