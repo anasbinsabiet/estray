@@ -25,7 +25,22 @@ const SingleProduct = ({ type }) => {
   const [error, setError] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [previewURL, setPreviewURL] = useState(null);
-  const [formItem, setFormItem] = useState({});
+  const [formItem, setFormItem] = useState({
+    outSideColorBack: "#0E2140",
+    outSideColor: "#B08A5D",
+    inSideColorBack: "#BF9D68",
+    inSideColor: "#0F2743",
+    website_title: "NyaWorldwide",
+    website_link: "NyaWorldwide.net",
+    email: "info@nyaWorldwide.net",
+    website_title_color: "#c8bfa7",
+    website_link_color: "#c8bfa7",
+    email_color: "#c8bfa7",
+    slug: "Choose the Best - Leave the Rest",
+    slug_color: "#c8bfa7",
+    text1: "KEEP IT SMOKEY",
+    text2: "CUSTOMER FOCUSED RESULT DRIVEN",
+  });
 
   const { checkoutCart } = useContext(CartContext);
 
@@ -231,11 +246,11 @@ const SingleProduct = ({ type }) => {
         ${formItem?.inSideColor} !important;
     }
     .text1 {
-      margin-top: ${formItem?.size === "15/4" ? "20px" : "50px"} !important;
+      margin-top: ${formItem?.size === "15/4" ? "30px" : "28px"} !important;
       color: ${formItem?.text1Color};
     }
     .text2 {
-      top: ${formItem?.size === "15/4" ? "250px" : "37.5em"};
+      top: ${formItem?.size === "15/4" ? "250px" : "42em"};
       color: ${formItem?.text2Color};
     }
     img.icon {
@@ -591,7 +606,7 @@ const SingleProduct = ({ type }) => {
                     </div>
 
                     <div className="col-md-6">
-                      <b className="lh-lg">Bottom of Ashtray insert picture</b>
+                      <b className="lh-lg">Middle of Ashtray insert picture</b>
                     </div>
                     <div className="col-md-6">
                       <input

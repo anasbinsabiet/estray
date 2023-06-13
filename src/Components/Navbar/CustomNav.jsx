@@ -50,7 +50,7 @@ const CustomNav = (props) => {
           }`}
           id="navbarColor01"
         >
-          <ul
+          {/* <ul
             id="primary-menu"
             className="navbar-nav pl-3"
             itemScope=""
@@ -95,12 +95,12 @@ const CustomNav = (props) => {
                 </Link>
               </li>
             )}
-          </ul>
+          </ul> */}
 
           <div className="header-cta">
             <Link to="/product">
               <div className="d-inline-block elementor-button-link elementor-button elementor-size-md">
-                Buy Now
+                Order Now
               </div>
             </Link>
           </div>

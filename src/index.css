@@ -107,7 +107,7 @@ img.icon {
   margin-left: -136px;
   width: 277px;
   color: #a68c67;
-  font-size: 9px !important;
+  font-size: 8px !important;
 }
 
 p.text1 {
@@ -262,6 +262,12 @@ section.elementor-section.elementor-top-section.elementor-element.elementor-elem
   height: 420px !important;
 }
 
+img.home-banner {
+  height: 251px !important;
+  display: block;
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .elementor-widget.elementor-widget-image {
     margin-top: 90px;
@@ -281,5 +287,14 @@ section.elementor-section.elementor-top-section.elementor-element.elementor-elem
 
   .elementor-column.elementor-col-50.elementor-inner-column.elementor-element.elementor-element-a608c67 {
     margin-top: 5rem;
+  }
+
+  .elementor-14555 .elementor-element.elementor-element-7b553fb img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .elementor-widget-container.h1 {
+    font-size: 40px;
   }
 }
