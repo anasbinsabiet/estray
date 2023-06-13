@@ -24,7 +24,7 @@ const SingleProduct = ({ type }) => {
   // const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
   const [imageFile, setImageFile] = useState(null);
-  const [previewURL, setPreviewURL] = useState(null);
+  const [previewURL, setPreviewURL] = useState("../../Assets/nyalogo.png");
   const [formItem, setFormItem] = useState({
     outSideColorBack: "#0E2140",
     outSideColor: "#B08A5D",
@@ -45,19 +45,27 @@ const SingleProduct = ({ type }) => {
   const { checkoutCart } = useContext(CartContext);
 
   const [rightImageFile, setRightImageFile] = useState(null);
-  const [rightImagePreviewURL, setRightImagePreviewURL] = useState(null);
+  const [rightImagePreviewURL, setRightImagePreviewURL] = useState(
+    "../../Assets/nyalogo.png"
+  );
 
   const [bottomImageFile, setBottomImageFile] = useState(null);
-  const [bottomImagePreviewURL, setBottomImagePreviewURL] = useState(null);
+  const [bottomImagePreviewURL, setBottomImagePreviewURL] = useState(
+    "../../Assets/nyalogo.png"
+  );
 
   const [websiteIconFile, setWebsiteIconFile] = useState(null);
-  const [websiteIconPreviewURL, setWebsiteIconPreviewURL] = useState(null);
+  const [websiteIconPreviewURL, setWebsiteIconPreviewURL] = useState(
+    "../../Assets/nwicon.png"
+  );
 
   const [websiteLogoFile, setWebsiteLogoFile] = useState(null);
-  const [websiteLogoPreviewURL, setWebsiteLogoPreviewURL] = useState(null);
+  const [websiteLogoPreviewURL, setWebsiteLogoPreviewURL] = useState(
+    "../../Assets/nyalogo.png"
+  );
 
   const [iconFile, setIconFile] = useState(null);
-  const [iconPreviewURL, setIconPreviewURL] = useState(null);
+  const [iconPreviewURL, setIconPreviewURL] = useState();
 
   const [customDesignFile, setCustomDesignFile] = useState(null);
   const [customDesignPreviewURL, setCustomDesignPreviewURL] = useState(null);
@@ -311,11 +319,11 @@ const SingleProduct = ({ type }) => {
     }
     img.logo3.back {
       top: unset;
-      bottom: ${formItem?.size === "15/4" ? "20.9em" : "11.9em"};
+      bottom: ${formItem?.size === "15/4" ? "26.9em" : "18.9em"};
     }
     .left-side .row {
-      left: ${formItem?.size === "15/4" ? "106px" : "107px"};
-      bottom: ${formItem?.size === "15/4" ? "26.5rem" : "18.5rem"};
+      left: ${formItem?.size === "15/4" ? "106px" : "106px"};
+      bottom: ${formItem?.size === "15/4" ? "26.5rem" : "18.3rem"};
       width: ${formItem?.size === "15/4" ? "180px" : "233px"};
     }
     p.textBase {
@@ -424,7 +432,7 @@ const SingleProduct = ({ type }) => {
                         <p className="textBase">{formItem.slug}</p>
                         <div className="left-side">
                           <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-6 col-sm-6">
                               {formItem.website_title && (
                                 <p className="link1">
                                   <FontAwesomeIcon
@@ -454,7 +462,7 @@ const SingleProduct = ({ type }) => {
                                 </p>
                               )}
                             </div>
-                            <div className="col-md-6 text-right">
+                            <div className="col-md-6 col-sm-6 text-right">
                               {websiteIconPreviewURL && (
                                 <img
                                   className="icon1"

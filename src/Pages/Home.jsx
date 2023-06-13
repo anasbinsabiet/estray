@@ -190,13 +190,12 @@ const Home = () => {
                                 </div>
                                 <div className="elementor-element elementor-element-e035502 elementor-widget elementor-widget-text-editor">
                                   <div className="elementor-widget-container text-black">
-                                    Welcome to our store! There are many
-                                    electronic cigarettes, e-liquids,
-                                    accessories and vaping accessories in our
-                                    store. Our customers appreciate us for a
-                                    wide range of products: in our network there
-                                    are products both premium segment and middle
-                                    and budget categories at the same time.{" "}
+                                    Welcome to our store! We delivered your
+                                    required designed ashtray. Our customers
+                                    appreciate us for accuracy: in our network
+                                    there are products both premium segment and
+                                    middle and budget categories at the same
+                                    time.
                                   </div>
                                 </div>
                                 <div className="elementor-element elementor-element-03e7962 elementor-tablet-align-center elementor-widget elementor-widget-button">

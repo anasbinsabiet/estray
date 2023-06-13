@@ -272,6 +272,14 @@ img.home-banner {
   height: 251px !important;
 }
 
+.elementor-button-text {
+  color: #9f7a43;
+}
+
+button.btn.btn-primary.btn-block {
+  background: #0e2841;
+}
+
 @media (max-width: 768px) {
   .elementor-widget.elementor-widget-image {
     margin-top: 90px;
@@ -304,5 +312,27 @@ img.home-banner {
 
   button.add-to-basket.btn.btn-secondary {
     font-size: 13px;
+  }
+
+  .left-side .row {
+    left: 59px !important;
+    bottom: 11.7rem !important;
+  }
+
+  .col-sm-6 {
+    width: 50% !important;
+  }
+
+  img.logo3.back {
+    left: 17em !important;
+    bottom: 11.9em !important;
+  }
+
+  img.logo2 {
+    left: 87px !important;
+  }
+
+  img.logo3 {
+    left: 273px !important;
   }
 }

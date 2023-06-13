@@ -2237,14 +2237,6 @@ h1.entry-title {
     align-items: center;
 }
 
-.elementor-14555 .elementor-element.elementor-element-a608c67:not(.elementor-motion-effects-element-type-background)>.elementor-widget-wrap,
-.elementor-14555 .elementor-element.elementor-element-a608c67>.elementor-widget-wrap>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-image: url("https://wapo.b-cdn.net/wp-content/uploads/2022/01/bgheader-cut-dark.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 .elementor-14555 .elementor-element.elementor-element-a608c67>.elementor-element-populated {
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
     margin: 10px 10px 10px 10px;

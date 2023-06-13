@@ -27,7 +27,7 @@ const CustomFooter = () => {
                     <h4 className="widget-title">Contact Us</h4>
                     <div className="textwidget">
                       <p>
-                        3162 Powers Ferry Road Suite 260-721 Marietta Ga 30062
+                        3162 Powers Ferry Road, Suite 260-721 Marietta, GA 30062
                       </p>
                       {/* <p>
                         Call Us:{" "}
