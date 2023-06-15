@@ -1,29 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import CustomFooter from "../Components/Navbar/CustomFooter";
 import html2canvas from "html2canvas";
-import { CartContext } from "../Context/CartContext/CartContext";
-import { useParams } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../Firebase/firebase";
 import { styled } from "styled-components";
 import pdfMake from "pdfmake";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faDownload,
   faEnvelope,
   faInfo,
   faLink,
-  faUpload,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const SingleProduct = ({ type }) => {
+  const form = useRef();
   const toast = useToast();
-  const { id, category } = useParams();
-  // const [item, setItem] = useState(null);
-  const [error, setError] = useState(null);
   const [imageFile, setImageFile] = useState(null);
+  const [isClicked, setIsClicked] = useState(false);
   const [previewURL, setPreviewURL] = useState("../../Assets/nyalogo.png");
   const [formItem, setFormItem] = useState({
     outSideColorBack: "#0E2140",
@@ -41,8 +37,6 @@ const SingleProduct = ({ type }) => {
     text1: "KEEP IT SMOKEY",
     text2: "CUSTOMER FOCUSED RESULT DRIVEN",
   });
-
-  const { checkoutCart } = useContext(CartContext);
 
   const [rightImageFile, setRightImageFile] = useState(null);
   const [rightImagePreviewURL, setRightImagePreviewURL] = useState(
@@ -74,8 +68,6 @@ const SingleProduct = ({ type }) => {
   const [customDesignPreviewURLBack, setCustomDesignPreviewURLBack] =
     useState(null);
 
-  const { addSingleItemToCart } = useContext(CartContext);
-  // const [product, setProduct] = useState(null);
   const product = {
     cardDetails: "Custom Design Ashtray",
     category: "Vape",
@@ -89,29 +81,6 @@ const SingleProduct = ({ type }) => {
     size: "XS",
     quantity: 1,
   };
-  clearInterval(+localStorage.getItem("setIntervalID"));
-  const productsItemsCollectionRef = collection(db, "products");
-
-  const getProducts = async () => {
-    const data = await getDocs(productsItemsCollectionRef);
-    try {
-      const datareceived = data.docs.map((el) => ({
-        ...el.data(),
-        id: el.id,
-      }));
-      // console.log("data received after getting is", datareceived);
-      let itemreceived = datareceived.filter((el) => {
-        return el.id === id && el.category === category;
-      });
-      console.log("itemreceived is ", itemreceived);
-      if (itemreceived.length) console.log("ok");
-      // setProduct({ ...itemreceived[0], size: "XS", quantity: 1 });
-      else setError("No Item found");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-  console.log("error is ", error);
 
   function handleImageUpload(event) {
     const file = event.target.files[0];
@@ -199,7 +168,6 @@ const SingleProduct = ({ type }) => {
 
   function handleCustomDesignUpload(event) {
     const file = event.target.files[0];
-
     // Store the file in state
     setCustomDesignFile(file);
 
@@ -225,10 +193,40 @@ const SingleProduct = ({ type }) => {
     reader.readAsDataURL(file);
   }
 
-  useEffect(() => {
-    // getProducts();
-  }, []);
-  console.log("product is ", product);
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsClicked(true);
+    if (type === "custom") {
+      const canvas1 = await html2canvas(document.getElementById("divToPrint1"));
+      const [, data1] = canvas1.toDataURL().split(",", 2);
+      const canvas2 = await html2canvas(document.getElementById("divToPrint2"));
+      const [, data2] = canvas2.toDataURL().split(",", 2);
+      sendData(data1, data2);
+    } else if (type === "upload") {
+      const [, data1] = customDesignPreviewURL.split(",", 2);
+      const [, data2] = customDesignPreviewURLBack.split(",", 2);
+      sendData(data1, data2);
+    }
+  };
+
+  const sendData = async (data1, data2) => {
+    await axios
+      .post("https://ashtry.onrender.com/api/v1/ashtry/mail_sent", {
+        front_image: data1,
+        back_image: data2,
+      })
+      .then((response) => {
+        if (response.data.message) {
+          toast({
+            title: response.data.message,
+            status: "success",
+            isClosable: true,
+            position: "top",
+            duration: 3000,
+          });
+        }
+      });
+  };
 
   const handleChange = (e) => {
     setFormItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -242,6 +240,7 @@ const SingleProduct = ({ type }) => {
         useCORS: true,
       }).then((canvas) => {
         const data = canvas.toDataURL();
+        console.log();
         const pdfExportSetting = {
           content: [
             {
@@ -272,7 +271,7 @@ const SingleProduct = ({ type }) => {
         ${formItem?.inSideColor} !important;
     }
     .text1 {
-      margin-top: ${formItem?.size === "15/4" ? "30px" : "28px"} !important;
+      margin-top: ${formItem?.size === "15/4" ? "30px" : "55px"} !important;
       color: ${formItem?.text1Color};
     }
     .text2 {
@@ -339,539 +338,547 @@ const SingleProduct = ({ type }) => {
         <h4 style={{ marginLeft: "-15px" }} className="mt-2">
           {product.cardDetails}
         </h4>
-        <div className="row w-100">
-          <div className="col pr-3 pl-0" id="divToPrint">
-            <div
-              className={`${
-                window.innerWidth > 768
-                  ? "px-5 py-4 border bg-light"
-                  : "py-4 border bg-light"
-              }`}
-            >
-              {type === "upload" && customDesignPreviewURL ? (
-                <img
-                  className="custom-design-preview w-100"
-                  alt="customDesignPreview"
-                  src={customDesignPreviewURL}
-                  height="58"
-                  width="73"
-                />
-              ) : (
-                ""
-              )}
-              {type === "upload" && customDesignPreviewURLBack ? (
-                <img
-                  className="custom-design-preview w-100 mt-3"
-                  alt="customDesignPreview"
-                  src={customDesignPreviewURLBack}
-                  height="58"
-                  width="73"
-                />
-              ) : (
-                ""
-              )}
-              {type === "upload" && !customDesignPreviewURL ? (
-                <h2 className="text-center py-5">No file choosen!</h2>
-              ) : (
-                ""
-              )}
-              {type === "custom" && (
-                <>
-                  <Div id="divToPrint1">
-                    <div className="triangle">
-                      <div className="triangle2">
-                        <p className="text1">{formItem.text1}</p>
-                        <img
-                          className="smoke1"
-                          alt="logo"
-                          src="../../Assets/smoke1.png"
-                          height="58"
-                        />
-                        {iconPreviewURL && (
+        <form ref={form} onSubmit={sendEmail}>
+          <div className="row w-100">
+            <div className="col pr-3 pl-0" id="divToPrint">
+              <div
+                className={`${
+                  window.innerWidth > 768
+                    ? "px-5 py-4 border bg-light"
+                    : "py-4 border bg-light"
+                }`}
+              >
+                {type === "upload" && customDesignPreviewURL ? (
+                  <img
+                    className="custom-design-preview w-100"
+                    alt="customDesignPreview"
+                    src={customDesignPreviewURL}
+                    height="58"
+                    width="73"
+                  />
+                ) : (
+                  ""
+                )}
+                {type === "upload" && customDesignPreviewURLBack ? (
+                  <img
+                    className="custom-design-preview w-100 mt-3"
+                    alt="customDesignPreview"
+                    src={customDesignPreviewURLBack}
+                    height="58"
+                    width="73"
+                  />
+                ) : (
+                  ""
+                )}
+                {type === "upload" && !customDesignPreviewURL ? (
+                  <h2 className="text-center py-5">No file choosen!</h2>
+                ) : (
+                  ""
+                )}
+                {type === "custom" && (
+                  <>
+                    <Div id="divToPrint1">
+                      <div className="triangle">
+                        <div className="triangle2">
+                          <p className="text1">{formItem.text1}</p>
                           <img
-                            className="icon"
-                            alt="icon"
-                            src={iconPreviewURL}
-                            height="58"
-                            width="73"
-                          />
-                        )}
-                        <p className="text2">{formItem.text2}</p>
-                        {bottomImagePreviewURL && (
-                          <img
-                            className="logo1"
-                            alt="Bottom"
-                            src={bottomImagePreviewURL}
-                            height="58"
-                            width="73"
-                          />
-                        )}
-                        {previewURL && (
-                          <img
-                            className="logo2"
+                            className="smoke1"
                             alt="logo"
-                            src={previewURL}
-                            width="73"
+                            src="../../Assets/smoke1.png"
+                            height="58"
                           />
-                        )}
-                        {rightImagePreviewURL && (
-                          <img
-                            className="logo3"
-                            alt="logo"
-                            src={rightImagePreviewURL}
-                            width="73"
-                          />
-                        )}
+                          {iconPreviewURL && (
+                            <img
+                              className="icon"
+                              alt="icon"
+                              src={iconPreviewURL}
+                              height="58"
+                              width="73"
+                            />
+                          )}
+                          <p className="text2">{formItem.text2}</p>
+                          {bottomImagePreviewURL && (
+                            <img
+                              className="logo1"
+                              alt="Bottom"
+                              src={bottomImagePreviewURL}
+                              height="58"
+                              width="73"
+                            />
+                          )}
+                          {previewURL && (
+                            <img
+                              className="logo2"
+                              alt="logo"
+                              src={previewURL}
+                              width="73"
+                            />
+                          )}
+                          {rightImagePreviewURL && (
+                            <img
+                              className="logo3"
+                              alt="logo"
+                              src={rightImagePreviewURL}
+                              width="73"
+                            />
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </Div>
-                  <br />
-                  <Div id="divToPrint2">
-                    <div className="triangle back">
-                      <div className="triangle2 back">
-                        <p className="textBase">{formItem.slug}</p>
-                        <div className="left-side">
-                          <div className="row">
-                            <div className="col-md-6 col-sm-6">
-                              {formItem.website_title && (
-                                <p className="link1">
-                                  <FontAwesomeIcon
-                                    icon={faInfo}
-                                    className="link1icon fa-circle"
-                                  />{" "}
-                                  {formItem.website_title}
-                                </p>
-                              )}
+                    </Div>
+                    <br />
+                    <Div id="divToPrint2">
+                      <div className="triangle back">
+                        <div className="triangle2 back">
+                          <p className="textBase">{formItem.slug}</p>
+                          <div className="left-side">
+                            <div className="row">
+                              <div className="col-md-6 col-sm-6">
+                                {formItem.website_title && (
+                                  <p className="link1">
+                                    <FontAwesomeIcon
+                                      icon={faInfo}
+                                      className="link1icon fa-circle"
+                                    />{" "}
+                                    {formItem.website_title}
+                                  </p>
+                                )}
 
-                              {formItem.website_link && (
-                                <p className="link2">
-                                  <FontAwesomeIcon
-                                    icon={faLink}
-                                    className="link1icon fa-circle"
+                                {formItem.website_link && (
+                                  <p className="link2">
+                                    <FontAwesomeIcon
+                                      icon={faLink}
+                                      className="link1icon fa-circle"
+                                    />
+                                    {formItem.website_link}
+                                  </p>
+                                )}
+                                {formItem.email && (
+                                  <p className="link3">
+                                    <FontAwesomeIcon
+                                      icon={faEnvelope}
+                                      className="link1icon fa-circle"
+                                    />
+                                    {formItem.email}
+                                  </p>
+                                )}
+                              </div>
+                              <div className="col-md-6 col-sm-6 text-right">
+                                {websiteIconPreviewURL && (
+                                  <img
+                                    className="icon1"
+                                    alt="icon"
+                                    src={websiteIconPreviewURL}
+                                    height="58"
+                                    width="73"
                                   />
-                                  {formItem.website_link}
-                                </p>
-                              )}
-                              {formItem.email && (
-                                <p className="link3">
-                                  <FontAwesomeIcon
-                                    icon={faEnvelope}
-                                    className="link1icon fa-circle"
-                                  />
-                                  {formItem.email}
-                                </p>
-                              )}
-                            </div>
-                            <div className="col-md-6 col-sm-6 text-right">
-                              {websiteIconPreviewURL && (
-                                <img
-                                  className="icon1"
-                                  alt="icon"
-                                  src={websiteIconPreviewURL}
-                                  height="58"
-                                  width="73"
-                                />
-                              )}
+                                )}
+                              </div>
                             </div>
                           </div>
+
+                          {websiteLogoPreviewURL && (
+                            <img
+                              className="logo3 back"
+                              alt="websiteLogo"
+                              src={websiteLogoPreviewURL}
+                              width="73"
+                            />
+                          )}
                         </div>
-
-                        {websiteLogoPreviewURL && (
-                          <img
-                            className="logo3 back"
-                            alt="websiteLogo"
-                            src={websiteLogoPreviewURL}
-                            width="73"
-                          />
-                        )}
                       </div>
-                    </div>
-                  </Div>
-                </>
-              )}
-            </div>
-          </div>
-          <div className="col form-side p-0">
-            <div className="p-3 border bg-light">
-              {type === "upload" && (
-                <>
-                  <h6 className="text-bold">Upload your Design</h6>
-                  <hr className="my-hr" />
-                  <div className="row w-100">
-                    <div className="col-md-6">
-                      <b className="lh-lg">Front Image</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleCustomDesignUpload}
-                      />
-                    </div>
-                  </div>
-                  <div className="row w-100">
-                    <div className="col-md-6">
-                      <b className="lh-lg">Back Image</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleCustomDesignUploadBack}
-                      />
-                    </div>
-                  </div>
-                  <hr className="my-hr" />
-                </>
-              )}
-
-              <div className="row w-100">
-                <div className="col-md-6">
-                  <span>
-                    <b>Price: </b>
-                  </span>
-                </div>
-                <div className="col-md-6">
-                  <span className="price">{product.price} $</span>
-                </div>
-
-                <div className="col-md-6">
-                  <span>
-                    <b className="lh-lg">Size</b>
-                  </span>
-                </div>
-                <div className="col-md-6">
-                  <select
-                    className="form-control form-sm"
-                    name="size"
-                    onChange={handleChange}
-                  >
-                    <option value="15/15">15/15</option>
-                    <option value="15/4">15/4</option>
-                  </select>
-                </div>
-
-                <div className="col-md-6">
-                  <b className="lh-lg">Quantity</b>
-                </div>
-                <div className="col-md-6">
-                  <select
-                    className="form-control form-sm"
-                    name=""
-                    id="qty"
-                    onChange={
-                      (e) => console.log("ok")
-                      // setProduct({ ...product, quantity: +e.target.value })
-                    }
-                  >
-                    <option value="500">500</option>
-                    <option value="1000">1000</option>
-                    <option value="1500">1500</option>
-                    <option value="2000">2000</option>
-                  </select>
-                </div>
+                    </Div>
+                  </>
+                )}
               </div>
-              {type === "custom" && (
-                <>
-                  <hr className="my-hr" />
-                  <div className="row w-100">
-                    <div className="col-md-6">
-                      <b className="lh-lg">Top Title</b>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="input-group">
+            </div>
+            <div className="col form-side p-0">
+              <div className="p-3 border bg-light">
+                {type === "upload" && (
+                  <>
+                    <h6 className="text-bold">Upload your Design</h6>
+                    <hr className="my-hr" />
+                    <div className="row w-100">
+                      <div className="col-md-6">
+                        <b className="lh-lg">Front Image</b>
+                      </div>
+                      <div className="col-md-6">
                         <input
                           className="form-control"
-                          type="text"
-                          name="text1"
-                          value={formItem.text1}
-                          onChange={handleChange}
+                          type="file"
+                          onChange={handleCustomDesignUpload}
                         />
-                        <span className="input-group-addon color">
-                          <input
-                            className="form-control"
-                            type="color"
-                            name="text1Color"
-                            value={formItem.text1Color}
-                            onChange={handleChange}
-                          />
-                        </span>
                       </div>
                     </div>
-
-                    <div className="col-md-6">
-                      <b className="lh-lg">Bottom Title</b>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="input-group">
+                    <div className="row w-100">
+                      <div className="col-md-6">
+                        <b className="lh-lg">Back Image</b>
+                      </div>
+                      <div className="col-md-6">
                         <input
                           className="form-control"
-                          type="text"
-                          name="text2"
-                          value={formItem.text2}
-                          onChange={handleChange}
+                          type="file"
+                          onChange={handleCustomDesignUploadBack}
                         />
-                        <span className="input-group-addon color">
-                          <input
-                            className="form-control"
-                            type="color"
-                            name="text2Color"
-                            value={formItem.text2Color}
-                            onChange={handleChange}
-                          />
-                        </span>
                       </div>
                     </div>
+                    <hr className="my-hr" />
+                  </>
+                )}
 
-                    <div className="col-md-6">
-                      <b className="lh-lg">Left side upload logo</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleImageUpload}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <b className="lh-lg">Right side upload logo</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleRightImageUpload}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <b className="lh-lg">Bottom upload logo</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleBottomImageUpload}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <b className="lh-lg">Middle of Ashtray insert picture</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleIconUpload}
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <b className="lh-lg">Outside Color</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control form-sm"
-                        type="color"
-                        name="outSideColor"
-                        value={formItem.outSideColor}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <b className="lh-lg">Inside Color</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control form-sm"
-                        type="color"
-                        name="inSideColor"
-                        value={formItem.inSideColor}
-                        onChange={handleChange}
-                      />
-                    </div>
+                <div className="row w-100">
+                  <div className="col-md-6">
+                    <span>
+                      <b>Price: </b>
+                    </span>
                   </div>
-                  <hr className="my-hr" />
-                  <div className="row w-100">
-                    <div className="col-md-6">
-                      <b className="lh-lg">Type Company Name</b>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="input-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="website_title"
-                          value={formItem.website_title}
-                          onChange={handleChange}
-                        />
-                        <span className="input-group-addon color">
-                          <input
-                            className="form-control"
-                            type="color"
-                            name="website_title_color"
-                            value={formItem.website_title_color}
-                            onChange={handleChange}
-                          />
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <b className="lh-lg">Type Web Address</b>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="input-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="website_link"
-                          value={formItem.website_link}
-                          onChange={handleChange}
-                        />
-                        <span className="input-group-addon color">
-                          <input
-                            className="form-control"
-                            type="color"
-                            name="website_link_color"
-                            value={formItem.website_link_color}
-                            onChange={handleChange}
-                          />
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <b className="lh-lg">Type email</b>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="input-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="email"
-                          value={formItem.email}
-                          onChange={handleChange}
-                        />
-                        <span className="input-group-addon color">
-                          <input
-                            className="form-control"
-                            type="color"
-                            name="email_color"
-                            value={formItem.email_color}
-                            onChange={handleChange}
-                          />
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <b className="lh-lg">Website Icon</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleWebsiteIconUpload}
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <b className="lh-lg">Right Side of Ashtray Upload Logo</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control"
-                        type="file"
-                        onChange={handleWebsiteLogoUpload}
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <b className="lh-lg">Bottom Type Tagline</b>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="input-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="slug"
-                          value={formItem.slug}
-                          onChange={handleChange}
-                        />
-                        <span className="input-group-addon color">
-                          <input
-                            className="form-control"
-                            type="color"
-                            name="slug_color"
-                            value={formItem.slug_color}
-                            onChange={handleChange}
-                          />
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <b className="lh-lg">Outside Color</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control form-sm"
-                        type="color"
-                        name="outSideColorBack"
-                        value={formItem.outSideColorBack}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="col-md-6">
-                      <b className="lh-lg">Inside Color</b>
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        className="form-control form-sm"
-                        type="color"
-                        name="inSideColorBack"
-                        value={formItem.inSideColorBack}
-                        onChange={handleChange}
-                      />
-                    </div>
+                  <div className="col-md-6">
+                    <span className="price">{product.price} $</span>
                   </div>
-                </>
-              )}
 
-              <div className="row quantity mt-4 w-100">
-                <div className="col-md-6"></div>
-                <div
-                  className={`${
-                    window.innerWidth < 768
-                      ? "col-md-6 justify-content-between d-flex pl-4 pr-0"
-                      : "col-md-6 justify-content-between d-flex"
-                  }`}
-                >
-                  {type === "custom" && (
-                    <button
-                      className="add-to-basket btn btn-outline-primary"
-                      onClick={printToPdf}
+                  <div className="col-md-6">
+                    <span>
+                      <b className="lh-lg">Size</b>
+                    </span>
+                  </div>
+                  <div className="col-md-6">
+                    <select
+                      className="form-control form-sm"
+                      name="size"
+                      onChange={handleChange}
                     >
-                      <FontAwesomeIcon icon={faDownload} />
-                    </button>
-                  )}
-                  <button
-                    className="add-to-basket btn btn-secondary"
-                    onClick={() => {
-                      checkoutCart();
-                      toast({
-                        title: "Your Order has been successfully Placed!",
-                        status: "success",
-                        isClosable: true,
-                        position: "top",
-                        duration: 3000,
-                      });
-                    }}
+                      <option value="15/15">15/15</option>
+                      <option value="15/4">15/4</option>
+                    </select>
+                  </div>
+
+                  <div className="col-md-6">
+                    <b className="lh-lg">Quantity</b>
+                  </div>
+                  <div className="col-md-6">
+                    <select
+                      className="form-control form-sm"
+                      name="qty"
+                      id="qty"
+                      onChange={
+                        (e) => console.log("ok")
+                        // setProduct({ ...product, quantity: +e.target.value })
+                      }
+                    >
+                      <option value="500">500</option>
+                      <option value="1000">1000</option>
+                      <option value="1500">1500</option>
+                      <option value="2000">2000</option>
+                    </select>
+                  </div>
+                </div>
+                {type === "custom" && (
+                  <>
+                    <hr className="my-hr" />
+                    <div className="row w-100">
+                      <div className="col-md-6">
+                        <b className="lh-lg">Top Title</b>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="input-group">
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="text1"
+                            value={formItem.text1}
+                            onChange={handleChange}
+                          />
+                          <span className="input-group-addon color">
+                            <input
+                              className="form-control"
+                              type="color"
+                              name="text1Color"
+                              value={formItem.text1Color}
+                              onChange={handleChange}
+                            />
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <b className="lh-lg">Bottom Title</b>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="input-group">
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="text2"
+                            value={formItem.text2}
+                            onChange={handleChange}
+                          />
+                          <span className="input-group-addon color">
+                            <input
+                              className="form-control"
+                              type="color"
+                              name="text2Color"
+                              value={formItem.text2Color}
+                              onChange={handleChange}
+                            />
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <b className="lh-lg">Left side upload logo</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control"
+                          type="file"
+                          onChange={handleImageUpload}
+                        />
+                      </div>
+
+                      <div className="col-md-6">
+                        <b className="lh-lg">Right side upload logo</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control"
+                          type="file"
+                          onChange={handleRightImageUpload}
+                        />
+                      </div>
+
+                      <div className="col-md-6">
+                        <b className="lh-lg">Bottom upload logo</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control"
+                          type="file"
+                          onChange={handleBottomImageUpload}
+                        />
+                      </div>
+
+                      <div className="col-md-6">
+                        <b className="lh-lg">
+                          Middle of Ashtray insert picture
+                        </b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control"
+                          type="file"
+                          onChange={handleIconUpload}
+                        />
+                      </div>
+                      <div className="col-md-6">
+                        <b className="lh-lg">Outside Color</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control form-sm"
+                          type="color"
+                          name="outSideColor"
+                          value={formItem.outSideColor}
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      <div className="col-md-6">
+                        <b className="lh-lg">Inside Color</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control form-sm"
+                          type="color"
+                          name="inSideColor"
+                          value={formItem.inSideColor}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    <hr className="my-hr" />
+                    <div className="row w-100">
+                      <div className="col-md-6">
+                        <b className="lh-lg">Type Company Name</b>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="input-group">
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="website_title"
+                            value={formItem.website_title}
+                            onChange={handleChange}
+                          />
+                          <span className="input-group-addon color">
+                            <input
+                              className="form-control"
+                              type="color"
+                              name="website_title_color"
+                              value={formItem.website_title_color}
+                              onChange={handleChange}
+                            />
+                          </span>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <b className="lh-lg">Type Web Address</b>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="input-group">
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="website_link"
+                            value={formItem.website_link}
+                            onChange={handleChange}
+                          />
+                          <span className="input-group-addon color">
+                            <input
+                              className="form-control"
+                              type="color"
+                              name="website_link_color"
+                              value={formItem.website_link_color}
+                              onChange={handleChange}
+                            />
+                          </span>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <b className="lh-lg">Type email</b>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="input-group">
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="email"
+                            value={formItem.email}
+                            onChange={handleChange}
+                          />
+                          <span className="input-group-addon color">
+                            <input
+                              className="form-control"
+                              type="color"
+                              name="email_color"
+                              value={formItem.email_color}
+                              onChange={handleChange}
+                            />
+                          </span>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <b className="lh-lg">Website Icon</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control"
+                          type="file"
+                          onChange={handleWebsiteIconUpload}
+                        />
+                      </div>
+                      <div className="col-md-6">
+                        <b className="lh-lg">
+                          Right Side of Ashtray Upload Logo
+                        </b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control"
+                          type="file"
+                          onChange={handleWebsiteLogoUpload}
+                        />
+                      </div>
+                      <div className="col-md-6">
+                        <b className="lh-lg">Bottom Type Tagline</b>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="input-group">
+                          <input
+                            className="form-control"
+                            type="text"
+                            name="slug"
+                            value={formItem.slug}
+                            onChange={handleChange}
+                          />
+                          <span className="input-group-addon color">
+                            <input
+                              className="form-control"
+                              type="color"
+                              name="slug_color"
+                              value={formItem.slug_color}
+                              onChange={handleChange}
+                            />
+                          </span>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <b className="lh-lg">Outside Color</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control form-sm"
+                          type="color"
+                          name="outSideColorBack"
+                          value={formItem.outSideColorBack}
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      <div className="col-md-6">
+                        <b className="lh-lg">Inside Color</b>
+                      </div>
+                      <div className="col-md-6">
+                        <input
+                          className="form-control form-sm"
+                          type="color"
+                          name="inSideColorBack"
+                          value={formItem.inSideColorBack}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                <div className="row quantity mt-4 w-100">
+                  <div className="col-md-6"></div>
+                  <div
+                    className={`${
+                      window.innerWidth < 768
+                        ? "col-md-6 justify-content-between d-flex pl-4 pr-0"
+                        : "col-md-6 justify-content-between d-flex"
+                    }`}
                   >
-                    Place Order
-                  </button>
+                    {type === "custom" && (
+                      <button
+                        type="button"
+                        className="add-to-basket btn btn-custom"
+                        onClick={printToPdf}
+                      >
+                        <FontAwesomeIcon icon={faDownload} />
+                      </button>
+                    )}
+                    <button
+                      disabled={isClicked}
+                      type="submit"
+                      className="add-to-basket btn btn-custom"
+                      // onClick={() => {
+                      //   toast({
+                      //     title: "Your Order has been successfully Placed!",
+                      //     status: "success",
+                      //     isClosable: true,
+                      //     position: "top",
+                      //     duration: 3000,
+                      //   });
+                      // }}
+                    >
+                      Place Order
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
       <CustomFooter />
     </>

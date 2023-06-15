@@ -2281,11 +2281,6 @@ h1.entry-title {
     padding: 0px 0px 0px 0px;
 }
 
-.elementor-14555 .elementor-element.elementor-element-4acd15c:hover {
-    background-color: #3A3A44;
-    box-shadow: 0px 15px 35px 0px rgba(10, 10, 12, 0.3215686274509804);
-}
-
 .elementor-14555 .elementor-element.elementor-element-4acd15c {
     border-style: solid;
     border-width: 1px 1px 1px 1px;
@@ -2381,16 +2376,6 @@ h1.entry-title {
     --e-column-margin-right: 20px;
     --e-column-margin-left: 20px;
     padding: 0px 0px 0px 0px;
-}
-
-.elementor-14555 .elementor-element.elementor-element-5d35ec3:not(.elementor-motion-effects-element-type-background),
-.elementor-14555 .elementor-element.elementor-element-5d35ec3>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-color: #3A3A44;
-}
-
-.elementor-14555 .elementor-element.elementor-element-5d35ec3:hover {
-    background-color: #3A3A44;
-    box-shadow: 0px 15px 35px 0px rgba(10, 10, 12, 0.3215686274509804);
 }
 
 .elementor-14555 .elementor-element.elementor-element-5d35ec3 {
@@ -2494,11 +2479,6 @@ h1.entry-title {
     --e-column-margin-right: 20px;
     --e-column-margin-left: 20px;
     padding: 0px 0px 0px 0px;
-}
-
-.elementor-14555 .elementor-element.elementor-element-8ca7d28:hover {
-    background-color: #3A3A44;
-    box-shadow: 0px 15px 35px 0px rgba(10, 10, 12, 0.3215686274509804);
 }
 
 .elementor-14555 .elementor-element.elementor-element-8ca7d28 {
@@ -2643,7 +2623,6 @@ h1.entry-title {
 
 .elementor-14555 .elementor-element.elementor-element-3d2ea7b:not(.elementor-motion-effects-element-type-background)>.elementor-widget-wrap,
 .elementor-14555 .elementor-element.elementor-element-3d2ea7b>.elementor-widget-wrap>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-image: url("https://wapo.b-cdn.net/wp-content/uploads/2022/01/bg-vape-shop-page-dark-column.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;

@@ -67,14 +67,14 @@ const Shop = () => {
         <div className="row w-100 mt-3 mb-2 pl-3">
           <div className="col pr-3 pl-0 text-center">
             <Link className="nav-link" to="/product/upload">
-              <button type="button" className="btn btn-secondary btn-block">
+              <button type="button" className="btn btn-custom btn-block">
                 Upload Your Design
               </button>
             </Link>
           </div>
           <div className="col pr-3 pl-0 text-center">
             <Link className="nav-link" to="/product/custom">
-              <button type="button" className="btn btn-primary btn-block">
+              <button type="button" className="btn btn-custom btn-block">
                 Create Your Design
               </button>
             </Link>

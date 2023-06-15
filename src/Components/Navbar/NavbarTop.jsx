@@ -1,10 +1,8 @@
 import { Flex, Center } from "@chakra-ui/react";
-import "../CartDropdown/CartDropdown.css";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthContext/AuthContextProvider";
-import CartDropdown from "../CartDropdown/CartDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQuery } from "@chakra-ui/react";
@@ -129,7 +127,6 @@ const NavbarTop = () => {
             <FontAwesomeIcon icon={faHeart} size="sm" />
           </Link>
         </div>
-        <CartDropdown />
       </Flex>
     </Flex>
   );

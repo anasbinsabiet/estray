@@ -184,8 +184,7 @@ const Home = () => {
                                 </div>
                                 <div className="elementor-element elementor-element-f2132d5 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor">
                                   <div className="elementor-widget-container text-black">
-                                    We offer a wide range of custom designed
-                                    ashtray
+                                    We offer custom designed ashtray
                                   </div>
                                 </div>
                                 <div className="elementor-element elementor-element-e035502 elementor-widget elementor-widget-text-editor">

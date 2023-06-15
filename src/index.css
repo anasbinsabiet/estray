@@ -285,6 +285,17 @@ button.btn.btn-primary.btn-block {
   color: #765a34 !important;
 }
 
+#pr-nav.nav-white-desktop {
+  margin: 0;
+  padding: 20px;
+  background: black;
+}
+
+.btn-custom {
+  color: #b59367 !important;
+  background: #262c3a !important;
+}
+
 @media (max-width: 768px) {
   .elementor-widget.elementor-widget-image {
     margin-top: 90px;
