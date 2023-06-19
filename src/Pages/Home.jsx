@@ -45,8 +45,8 @@ const Home = () => {
                                 </div>
                                 <div className="elementor-element elementor-element-a52afdf elementor-widget elementor-widget-text-editor">
                                   <div className="elementor-widget-container h1 text-black">
-                                    Let’s designed your
-                                    <br /> own Ashtray
+                                    Let’s design your
+                                    <br /> own Ashtrays
                                   </div>
                                 </div>
                                 <section className="elementor-section elementor-inner-section elementor-element elementor-element-d2c0f03 elementor-section-full_width elementor-section-height-default elementor-section-height-default">
