@@ -1,12 +1,5 @@
-# Ecommerce website with admin panel
+# Custom product design by user and send order request to admin and email
 
-An ecommerce website with admin panel for CRUD operations. 
-Firebase is used as a backend to fetch products and authentication.
-All features such as filter, sort, pagination, wishlist, cart and checkout are implemented manually.
-UI is developed using CSS and Chakra UI.
-Private Routing is available in product, wishlist and cart pages.
-
-## Tech Stacks
-
-Javascript | React JS | Firebase | Chakra UI | Netlify
-
+An ecommerce website with custom product design by user. 
+All features such as filter, sort, pagination checkout and send mail are implemented manually.
+UI is developed using CSS and React Bootstrap.
